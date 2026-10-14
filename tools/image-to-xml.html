@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00618">Image to XML — OCR an Image Into XML | ToolNest</title>
+  <meta name="description" content="Run OCR on an image and get the extracted text as XML. Free, private, and runs entirely in your browser." data-i18n-content="k00619">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00620">👁️ Image to XML</h1>
+    <p data-i18n="k00621">Run OCR on an image and get the extracted text as XML.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Image to XML tool" data-i18n-aria="k00622">
+    <div id="itx-drop"></div>
+    <div id="itx-alert"></div>
+    <div class="progress-row">
+      <div class="meter"><div id="itx-bar"></div></div><span id="itx-status" data-i18n="k00586">Waiting for an image…</span>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="itx-go" data-i18n="k00623">OCR to XML</button>
+      <button class="btn btn-ghost btn-sm" id="itx-copy" disabled data-i18n="k00588">Copy</button>
+      <button class="btn btn-ghost btn-sm" id="itx-dl" disabled data-i18n="k00624">Download .xml</button>
+    </div>
+    <div class="field">
+      <label for="itx-output" data-i18n="k00625">XML output</label>
+      <textarea id="itx-output" rows="10" readonly placeholder="XML output will appear here…" data-i18n-ph="k00626"></textarea>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00592">Drop a photo or screenshot containing text into the box above.</li>
+      <li data-i18n-html="k00627">Press <strong>OCR to XML</strong> — the image is scanned and its text is wrapped in a simple XML document.</li>
+      <li data-i18n-html="k00628">Copy the XML or download it as a <code>.xml</code> file.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00629">What does the XML look like?</summary><p data-i18n-html="k00630">A small document with an <code>&lt;ocr&gt;</code> root containing the source file name and the extracted <code>&lt;text&gt;</code> — special characters are escaped so the XML stays valid.</p></details>
+    <details><summary data-i18n="k00597">How accurate is the OCR?</summary><p data-i18n="k00598">Clear, high-contrast images with straight, well-lit English text work best. Blurry or skewed text produces more errors — cropping tightly around the text helps.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="image-to-text.html"><span data-i18n="k00599">Image to Text</span><span>→</span></a>
+      <a href="image-to-json.html"><span data-i18n="k00105">Image to JSON</span><span>→</span></a>
+      <a href="xml-to-json.html"><span data-i18n="k00161">XML to JSON</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.ToolNest;
+  var alertEl = document.getElementById("itx-alert");
+  var bar = document.getElementById("itx-bar");
+  var status = document.getElementById("itx-status");
+  var output = document.getElementById("itx-output");
+  var goBtn = document.getElementById("itx-go");
+  var copyBtn = document.getElementById("itx-copy");
+  var dlBtn = document.getElementById("itx-dl");
+
+  var file = null;
+
+  function escapeXml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&apos;");
+  }
+  function showError(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
+  }
+  function clearAlerts() { alertEl.innerHTML = ""; }
+
+  T.renderDropzone(document.getElementById("itx-drop"), {
+    accept: "image/*",
+    labelKey: "j0039",
+    onFiles: function (files) {
+      clearAlerts();
+      file = files[0] || null;
+      output.value = "";
+      copyBtn.disabled = true;
+      dlBtn.disabled = true;
+      bar.style.width = "0%";
+      status.textContent = file ? I18N.t("j1202") : I18N.t("j0014");
+    }
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlerts();
+    if (!file) { showError(I18N.t("j0003")); return; }
+    goBtn.disabled = true;
+    bar.style.width = "0%";
+    status.textContent = I18N.t("j0009");
+    T.loadScriptOrAlert(T.CDN.tesseract, alertEl, I18N.t("j0028"))
+      .then(function (ok) {
+        if (!ok) return null;
+        return Tesseract.recognize(file, "eng", {
+          logger: function (m) {
+            if (m.status === "recognizing text") {
+              var pct = Math.round(m.progress * 100);
+              bar.style.width = pct + "%";
+              status.textContent = pct + "%";
+            } else {
+              status.textContent = I18N.t("j0009");
+            }
+          }
+        });
+      })
+      .then(function (result) {
+        if (!result) return;
+        var text = (result.data && result.data.text || "").trim();
+        if (!text) {
+          bar.style.width = "0%";
+          status.textContent = I18N.t("j0014");
+          showError(I18N.t("j0044"));
+          return;
+        }
+        var xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+          "<ocr>\n" +
+          "  <source>" + escapeXml(file.name) + "</source>\n" +
+          "  <text>" + escapeXml(text) + "</text>\n" +
+          "</ocr>";
+        output.value = xml;
+        bar.style.width = "100%";
+        status.textContent = I18N.t("j1201");
+        copyBtn.disabled = false;
+        dlBtn.disabled = false;
+      })
+      .catch(function (err) {
+        bar.style.width = "0%";
+        status.textContent = I18N.t("j0014");
+        showError(err && err.message ? err.message : I18N.t("j0061"));
+      })
+      .finally(function () { goBtn.disabled = false; });
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (!output.value) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(output.value).then(function () {
+        T.showToast(I18N.t("j0228"));
+      }, function () { showError(I18N.t("j0015")); });
+    } else {
+      output.select();
+      try { document.execCommand("copy"); T.showToast(I18N.t("j0228")); }
+      catch (e) { showError(I18N.t("j0015")); }
+    }
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!output.value) return;
+    var base = (file && file.name ? file.name : "image").replace(/\.[^.]+$/, "") || "image";
+    T.downloadText(output.value, base + "-ocr.xml", "application/xml;charset=utf-8");
+  });
+})();
+</script>
+</body>
+</html>

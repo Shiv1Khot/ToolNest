@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00631">Invoice OCR Reader — Scan Invoices to Text | ToolNest</title>
+  <meta name="description" content="Free invoice OCR reader. Scan an invoice photo or PDF into editable text in your browser. Basic OCR — always verify figures." data-i18n-content="k00632">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00633">🧾 Invoice OCR Reader</h1>
+    <p data-i18n="k00634">OCR an invoice photo or PDF into editable text with a line-item preview.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Invoice OCR reader tool" data-i18n-aria="k00635">
+    <div id="inv-drop"></div>
+    <div id="inv-alert"></div>
+    <div class="progress-row" id="inv-progress-row" style="display:none">
+      <div class="meter"><div id="inv-bar"></div></div>
+      <p class="hint" id="inv-status" data-i18n="k00636">Preparing…</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="inv-go" data-i18n="k00637">🔍 Extract Text</button>
+      <button class="btn btn-ghost btn-sm" id="inv-dl" style="display:none" data-i18n="k00638">⬇ Download lines CSV</button>
+    </div>
+    <div class="alert alert-error" style="margin:.9rem 0" data-i18n-html="k00639"><strong>A quick word of caution:</strong> this is basic OCR, not AI line-item extraction. Text recognition makes mistakes — always check the figures before using them anywhere important.</div>
+    <div class="field" id="inv-text-field" style="display:none">
+      <label for="inv-text" data-i18n="k00640">Recognized text — edit freely</label>
+      <textarea id="inv-text" style="min-height:200px"></textarea>
+    </div>
+    <div class="field" id="inv-lines-field" style="display:none">
+      <label data-i18n="k00641">Detected lines</label>
+      <div id="inv-lines"></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00642">Drop an invoice photo (JPG/PNG) or a PDF onto the box above.</li>
+      <li data-i18n-html="k00643">Click <strong>Extract Text</strong> and wait while the OCR runs — you'll see live progress.</li>
+      <li data-i18n="k00644">Fix any misread characters in the editable text box, then download the detected lines as CSV.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00645">How accurate is the text recognition?</summary><p data-i18n="k00646">This is basic OCR, not AI line-item extraction — it reads the visible characters as best it can. Clear, straight-on scans work well; crumpled photos or tiny fonts will have errors. Always check figures before using them.</p></details>
+    <details><summary data-i18n="k00647">Which pages of a PDF are read?</summary><p data-i18n="k00648">Only the first page is scanned. If your invoice spans multiple pages, save the page you need as a separate PDF or image and upload that.</p></details>
+    <details><summary data-i18n="k00649">Is my invoice uploaded anywhere?</summary><p data-i18n="k00650">No. OCR runs entirely in your browser — your invoice is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="image-to-text.html"><span data-i18n="k00599">Image to Text</span><span>→</span></a>
+      <a href="pdf-to-ocr.html"><span data-i18n="k00617">PDF to OCR</span><span>→</span></a>
+      <a href="leads-extractor.html"><span data-i18n="k00169">Leads Extractor</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var alertBox = document.getElementById("inv-alert");
+  var progressRow = document.getElementById("inv-progress-row");
+  var bar = document.getElementById("inv-bar");
+  var statusEl = document.getElementById("inv-status");
+  var textField = document.getElementById("inv-text-field");
+  var textArea = document.getElementById("inv-text");
+  var linesField = document.getElementById("inv-lines-field");
+  var linesWrap = document.getElementById("inv-lines");
+  var dlBtn = document.getElementById("inv-dl");
+  var file = null;
+  var busy = false;
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  function setProgress(pct, label) {
+    bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+    statusEl.textContent = label || "";
+  }
+
+  ToolNest.renderDropzone(document.getElementById("inv-drop"), {
+    accept: "image/*,.pdf",
+    labelKey: "j0114",
+    onFiles: function (files) {
+      file = files[0] || null;
+      textField.style.display = "none";
+      linesField.style.display = "none";
+      dlBtn.style.display = "none";
+      textArea.value = "";
+      showAlert("", "");
+    }
+  });
+
+  function renderLines() {
+    var lines = textArea.value.split("\n").map(function (l) { return l.trim(); }).filter(function (l) { return l.length > 0; });
+    if (!lines.length) {
+      linesWrap.innerHTML = '<p class="hint">' + I18N.t("j1216") + "</p>";
+      return;
+    }
+    var html = '<div class="result-table-wrap"><table class="result-table"><thead><tr><th style="width:3.5rem">#</th><th>' + I18N.t("j1217") + "</th></tr></thead><tbody>" +
+      lines.map(function (l, i) {
+        return "<tr><td>" + (i + 1) + "</td><td>" + ToolNest.escapeHtml(l) + "</td></tr>";
+      }).join("") + "</tbody></table></div>";
+    linesWrap.innerHTML = html;
+    linesField.style.display = "";
+    dlBtn.style.display = "";
+  }
+
+  function pdfPageToCanvas(arrayBuffer) {
+    return ToolNest.loadScriptOrAlert(ToolNest.CDN.pdfjs, alertBox, I18N.t("j0211")).then(function (ok) {
+      if (!ok) return null;
+      var pdfjsLib = window["pdfjsLib"];
+      pdfjsLib.GlobalWorkerOptions.workerSrc = ToolNest.CDN.pdfjsWorker;
+      setProgress(5, I18N.t("j0155"));
+      return pdfjsLib.getDocument({ data: arrayBuffer }).promise.then(function (pdf) {
+        return pdf.getPage(1).then(function (page) {
+          var scale = 150 / 72; // render page 1 at 150dpi
+          var viewport = page.getViewport({ scale: scale });
+          var canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          setProgress(10, I18N.t("j0182"));
+          return page.render({ canvasContext: canvas.getContext("2d"), viewport: viewport }).promise.then(function () {
+            return canvas;
+          });
+        });
+      });
+    }).catch(function (err) {
+      if (err && err.message === "LOAD_ABORTED") throw err;
+      showAlert("error", I18N.t("j0094"));
+      return null;
+    });
+  }
+
+  document.getElementById("inv-go").addEventListener("click", function () {
+    if (busy) return;
+    if (!file) { showAlert("error", I18N.t("j0169")); return; }
+    busy = true;
+    showAlert("", "");
+    textField.style.display = "none";
+    linesField.style.display = "none";
+    dlBtn.style.display = "none";
+    progressRow.style.display = "";
+    setProgress(2, I18N.t("j0009"));
+
+    function runOcr(imageSource) {
+      var tessOk = ToolNest.loadScriptOrAlert(ToolNest.CDN.tesseract, alertBox, I18N.t("j0207"));
+      return tessOk.then(function (ok) {
+        if (!ok) throw new Error("LOAD_ABORTED");
+        setProgress(15, I18N.t("j0179"));
+        return window.Tesseract.recognize(imageSource, "eng", {
+          logger: function (m) {
+            if (m && m.status === "recognizing text" && typeof m.progress === "number") {
+              var pct = 15 + Math.round(m.progress * 80);
+              setProgress(pct, I18N.t("j1203", { n: Math.round(m.progress * 100) }));
+            } else if (m && m.status) {
+              setProgress(12, I18N.t("j1204", { status: m.status }));
+            }
+          }
+        });
+      }).then(function (result) {
+        var text = (result && result.data && result.data.text) ? result.data.text.trim() : "";
+        setProgress(100, I18N.t("j1201"));
+        textArea.value = text;
+        textField.style.display = "";
+        if (!text) {
+          showAlert("error", I18N.t("j1205", { name: file.name }));
+        } else {
+          showAlert("success", I18N.t("j0190"));
+        }
+        renderLines();
+        progressRow.style.display = "none";
+        busy = false;
+      }).catch(function (err) {
+        progressRow.style.display = "none";
+        busy = false;
+        if (err && err.message === "LOAD_ABORTED") return;
+        showAlert("error", I18N.t("j1206", { name: file.name }));
+      });
+    }
+
+    var isPdf = /\.pdf$/i.test(file.name) || file.type === "application/pdf";
+    if (isPdf) {
+      ToolNest.readAsArrayBuffer(file).then(function (buf) {
+        return pdfPageToCanvas(buf).then(function (canvas) {
+          if (!canvas) { progressRow.style.display = "none"; busy = false; return; }
+          runOcr(canvas);
+        });
+      }).catch(function (err) {
+        progressRow.style.display = "none";
+        busy = false;
+        if (err && err.message === "LOAD_ABORTED") return;
+        showAlert("error", I18N.t("j1207", { name: file.name }));
+      });
+    } else {
+      ToolNest.readAsDataURL(file).then(function (url) {
+        runOcr(url);
+      }).catch(function () {
+        progressRow.style.display = "none";
+        busy = false;
+        showAlert("error", I18N.t("j1207", { name: file.name }));
+      });
+    }
+  });
+
+  textArea.addEventListener("input", renderLines);
+
+  dlBtn.addEventListener("click", function () {
+    var lines = textArea.value.split("\n").map(function (l) { return l.trim(); }).filter(function (l) { return l.length > 0; });
+    if (!lines.length) { ToolNest.showToast(I18N.t("j0148")); return; }
+    var csv = ["line,text"].concat(lines.map(function (l, i) { return (i + 1) + "," + ToolNest.csvCell(l); })).join("\r\n");
+    ToolNest.downloadText(csv, "invoice-lines.csv", "text/csv;charset=utf-8");
+  });
+})();
+</script>
+</body>
+</html>

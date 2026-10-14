@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00540">Image Compressor — Compress Any Image Automatically | ToolNest</title>
+  <meta name="description" content="Free image compressor that picks the right compression automatically for JPEG, PNG, WebP, and more. Runs entirely in your browser — no uploads, no signup." data-i18n-content="k00541">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00542">🗜️ Image Compressor</h1>
+    <p data-i18n="k00543">Drop in any image — the right compression is picked automatically.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Image Compressor tool" data-i18n-aria="k00544">
+    <div id="img-drop"></div>
+    <div id="img-alert"></div>
+    <div class="field">
+      <label data-i18n="k00445">Original file</label>
+      <div class="output" id="img-info" hidden data-i18n="k00545">No image loaded yet — drop one in above.</div>
+    </div>
+    <div id="img-controls"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="img-go" data-i18n="k00454">Compress &amp; Download</button>
+    </div>
+    <div class="stat-grid" id="img-stats" hidden>
+      <div class="stat"><div class="v" id="img-before">—</div><div class="l" data-i18n="k00455">Before</div></div>
+      <div class="stat"><div class="v" id="img-after">—</div><div class="l" data-i18n="k00456">After</div></div>
+      <div class="stat"><div class="v" id="img-saved">—</div><div class="l" data-i18n="k00291">Saved</div></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00546">Drop any image into the box above — JPEG, PNG, WebP, GIF, or BMP.</li>
+      <li data-i18n="k00547">The tool detects the format and shows you the best compression controls for it.</li>
+      <li data-i18n-html="k00548">Tweak the slider to taste, then hit <strong>Compress &amp; Download</strong>.</li>
+      <li data-i18n="k00549">Check the Before/After stats to see how much space you saved.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00550">How does auto mode choose?</summary><p data-i18n="k00551">It looks at the file's format: JPEGs and WebPs get a quality slider (same dimensions, smaller file), PNGs get a scale slider (because PNG is lossless, shrinking dimensions is what actually works), and anything else — like GIF or BMP — is converted to WebP, the smallest widely supported format.</p></details>
+    <details><summary data-i18n="k00552">What are the best settings?</summary><p data-i18n="k00553">For JPEG/WebP, quality 80 is the sweet spot for photos — near-identical to the original. For PNG, scale 85% looks the same on screen while cutting a real chunk of bytes. If the result isn't small enough, run the downloaded file through again.</p></details>
+    <details><summary data-i18n="k00554">Is my image uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="jpeg-compressor.html"><span data-i18n="k00114">JPEG Compressor</span><span>→</span></a>
+      <a href="png-compressor.html"><span data-i18n="k00116">PNG Compressor</span><span>→</span></a>
+      <a href="gif-compressor.html"><span data-i18n="k00118">GIF Compressor</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.ToolNest;
+  var alertEl = document.getElementById("img-alert");
+  var infoEl = document.getElementById("img-info");
+  var controlsEl = document.getElementById("img-controls");
+  var statsEl = document.getElementById("img-stats");
+  var beforeEl = document.getElementById("img-before");
+  var afterEl = document.getElementById("img-after");
+  var savedEl = document.getElementById("img-saved");
+  var goBtn = document.getElementById("img-go");
+  var st = { img: null, name: "image", size: 0, w: 0, h: 0, mode: null };
+
+  function clearAlert() { alertEl.innerHTML = ""; }
+  function showErr(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
+  }
+
+  // Detect which compression strategy fits this file.
+  function pickMode(file) {
+    var type = (file.type || "").toLowerCase();
+    var name = (file.name || "").toLowerCase();
+    if (/^image\/jpe?g$/.test(type) || /\.jpe?g$/.test(name)) return "jpeg";
+    if (type === "image/png" || /\.png$/.test(name)) return "png";
+    if (type === "image/webp" || /\.webp$/.test(name)) return "webp";
+    return "other";
+  }
+
+  function qualityControl(labelText, noteText) {
+    return '<div class="field"><label for="img-q">' + labelText +
+      ': <output id="img-qv">80</output>%</label>' +
+      '<input type="range" id="img-q" min="10" max="100" value="80" step="1">' +
+      '<p class="hint">' + noteText + "</p></div>";
+  }
+  function scaleControl() {
+    return '<div class="field"><label for="img-s">' + I18N.t("j1117") + ' <output id="img-sv">85</output>%</label>' +
+      '<input type="range" id="img-s" min="10" max="100" value="85" step="1">' +
+      '<p class="hint">' + I18N.t("j1118") + ' <span id="img-dims"></span></p></div>';
+  }
+
+  function renderControls(mode, isGif) {
+    var html;
+    if (mode === "jpeg") {
+      html = '<div class="alert">' + I18N.t("j1120") + "</div>" +
+        qualityControl(I18N.t("j1113"), I18N.t("j1114"));
+    } else if (mode === "webp") {
+      html = '<div class="alert">' + I18N.t("j1121") + "</div>" +
+        qualityControl(I18N.t("j1113"), I18N.t("j1115"));
+    } else if (mode === "png") {
+      html = '<div class="alert">' + I18N.t("j1122") + "</div>" +
+        scaleControl();
+    } else {
+      var gifNote = isGif ? " " + I18N.t("j0083") : "";
+      html = '<div class="alert">' + I18N.t("j1123") + gifNote + "</div>" +
+        qualityControl(I18N.t("j0226"), I18N.t("j1116"));
+    }
+    controlsEl.innerHTML = html;
+
+    var qEl = document.getElementById("img-q");
+    if (qEl) {
+      var qv = document.getElementById("img-qv");
+      qEl.addEventListener("input", function () { qv.textContent = qEl.value; });
+    }
+    var sEl = document.getElementById("img-s");
+    if (sEl) {
+      var sv = document.getElementById("img-sv");
+      var dims = document.getElementById("img-dims");
+      var update = function () {
+        sv.textContent = sEl.value;
+        var nw = Math.max(1, Math.round(st.w * sEl.value / 100));
+        var nh = Math.max(1, Math.round(st.h * sEl.value / 100));
+        dims.textContent = I18N.t("j1119", { w: nw, h: nh });
+      };
+      sEl.addEventListener("input", update);
+      update();
+    }
+  }
+
+  T.renderDropzone(document.getElementById("img-drop"), {
+    accept: "image/*",
+    labelKey: "j0115",
+    onFiles: function (files) {
+      var f = files[0];
+      clearAlert();
+      var type = (f.type || "").toLowerCase();
+      if (type && type.indexOf("image/") !== 0) {
+        showErr(I18N.t("j0201"));
+        return;
+      }
+      T.loadImageFile(f).then(function (img) {
+        st.img = img;
+        st.size = f.size;
+        st.w = img.naturalWidth || img.width;
+        st.h = img.naturalHeight || img.height;
+        st.name = ((f.name || "image").replace(/\.[^.]*$/, "") || "image");
+        st.mode = pickMode(f);
+        var isGif = /gif/i.test(f.type || "") || /\.gif$/i.test(f.name || "");
+        infoEl.hidden = false;
+        infoEl.textContent = I18N.t("j1105", { w: st.w, h: st.h, size: T.formatBytes(st.size) });
+        renderControls(st.mode, isGif);
+      }).catch(function (err) {
+        showErr(err && err.message ? err.message : I18N.t("j0103"));
+      });
+    }
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlert();
+    if (!st.img || !st.mode) { showErr(I18N.t("j0081")); return; }
+
+    var outW = st.w, outH = st.h, mime, ext, q;
+    if (st.mode === "jpeg") {
+      mime = "image/jpeg"; ext = ".jpg";
+      q = Math.min(100, Math.max(10, parseInt(document.getElementById("img-q").value, 10) || 80)) / 100;
+    } else if (st.mode === "webp") {
+      mime = "image/webp"; ext = ".webp";
+      q = Math.min(100, Math.max(10, parseInt(document.getElementById("img-q").value, 10) || 80)) / 100;
+    } else if (st.mode === "png") {
+      mime = "image/png"; ext = ".png"; q = undefined;
+      var pct = Math.min(100, Math.max(10, parseInt(document.getElementById("img-s").value, 10) || 85));
+      outW = Math.max(1, Math.round(st.w * pct / 100));
+      outH = Math.max(1, Math.round(st.h * pct / 100));
+    } else {
+      mime = "image/webp"; ext = ".webp";
+      q = Math.min(100, Math.max(10, parseInt(document.getElementById("img-q").value, 10) || 80)) / 100;
+    }
+
+    var c = document.createElement("canvas");
+    c.width = outW; c.height = outH;
+    var x = c.getContext("2d");
+    if (mime === "image/jpeg") { x.fillStyle = "#ffffff"; x.fillRect(0, 0, outW, outH); }
+    x.drawImage(st.img, 0, 0, outW, outH);
+    c.toBlob(function (blob) {
+      if (!blob) { showErr(I18N.t("j0018")); return; }
+      var saved = st.size > 0 ? Math.max(0, Math.round((1 - blob.size / st.size) * 100)) : 0;
+      beforeEl.textContent = T.formatBytes(st.size);
+      afterEl.textContent = T.formatBytes(blob.size);
+      savedEl.textContent = saved + "%";
+      statsEl.hidden = false;
+      T.downloadBlob(blob, st.name + "-compressed" + ext);
+    }, mime, q);
+  });
+})();
+</script>
+</body>
+</html>

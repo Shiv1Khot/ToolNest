@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00555">Image Resizer — Resize Photos by Pixels or Percent | ToolNest</title>
+  <meta name="description" content="Resize any image by exact pixels or a percentage, keeping it sharp. Free, private, and runs entirely in your browser." data-i18n-content="k00556">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00557">📐 Image Resizer</h1>
+    <p data-i18n="k00558">Resize any image by exact pixels or a percentage, keeping it sharp.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Image Resizer tool" data-i18n-aria="k00559">
+    <div id="ir-drop"></div>
+    <div id="ir-alert"></div>
+    <div class="stat-grid" id="ir-info" hidden>
+      <div class="stat"><div class="v" id="ir-orig">–</div><div class="l" data-i18n="k00289">Original</div></div>
+      <div class="stat"><div class="v" id="ir-new">–</div><div class="l" data-i18n="k00560">New size</div></div>
+    </div>
+
+    <div class="field">
+      <label data-i18n="k00561">Resize mode</label>
+      <label style="font-weight:400"><input type="radio" name="ir-mode" value="pixels" checked><span data-i18n="k00562"> Exact pixels</span></label>
+      <label style="font-weight:400; margin-left:1rem"><input type="radio" name="ir-mode" value="percent"><span data-i18n="k00563"> Percentage</span></label>
+    </div>
+
+    <div class="two-col" id="ir-pixels">
+      <div class="field">
+        <label for="ir-width" data-i18n="k00564">Width (px)</label>
+        <input type="number" id="ir-width" min="1" placeholder="800" data-i18n-ph="k00565">
+      </div>
+      <div class="field">
+        <label for="ir-height" data-i18n="k00566">Height (px)</label>
+        <input type="number" id="ir-height" min="1" placeholder="600" data-i18n-ph="k00567">
+      </div>
+    </div>
+    <div class="field" id="ir-lock-wrap">
+      <label style="font-weight:400"><input type="checkbox" id="ir-lock" checked><span data-i18n="k00568"> Lock aspect ratio</span></label>
+    </div>
+
+    <div class="field" id="ir-percent-wrap" hidden>
+      <label for="ir-percent" data-i18n="k00569">Scale (%)</label>
+      <input type="number" id="ir-percent" min="1" max="200" value="100">
+      <div class="hint" data-i18n="k00570">Between 1 and 200.</div>
+    </div>
+
+    <div class="two-col">
+      <div class="field">
+        <label for="ir-format" data-i18n="k00447">Output format</label>
+        <select id="ir-format">
+          <option value="png" data-i18n="k00449">PNG</option>
+          <option value="jpeg" selected data-i18n="k00450">JPEG</option>
+          <option value="webp" data-i18n="k00571">WebP</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ir-quality"><span data-i18n="k00452">Quality: </span><span id="ir-quality-val">90</span>% <span class="hint" data-i18n="k00572">(JPEG / WebP)</span></label>
+        <input type="range" id="ir-quality" min="1" max="100" value="90">
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="ir-go" data-i18n="k00573">Resize &amp; Download</button>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00574">Drop any image into the box above, or click it to pick one from your device.</li>
+      <li data-i18n-html="k00575">Choose <strong>exact pixels</strong> (with aspect ratio lock) or a <strong>percentage</strong> of the original size.</li>
+      <li data-i18n-html="k00576">Pick PNG, JPEG, or WebP, set the quality, then press <strong>Resize &amp; Download</strong>.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00577">Will enlarging a small image keep it sharp?</summary><p data-i18n="k00578">Resizing uses smooth high-quality scaling, but enlarging a small image can't add detail that wasn't there — it may look softer. Downsizing stays crisp.</p></details>
+    <details><summary data-i18n="k00579">Which format should I choose?</summary><p data-i18n="k00580">PNG is lossless and best for graphics with sharp edges; JPEG keeps photos small; WebP usually gives the smallest file at good quality. The quality slider applies to JPEG and WebP.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="png-to-jpg.html"><span data-i18n="k00079">PNG to JPG</span><span>→</span></a>
+      <a href="jpeg-compressor.html"><span data-i18n="k00114">JPEG Compressor</span><span>→</span></a>
+      <a href="image-compressor.html"><span data-i18n="k00120">Image Compressor</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.ToolNest;
+  var alertEl = document.getElementById("ir-alert");
+  var infoEl = document.getElementById("ir-info");
+  var origEl = document.getElementById("ir-orig");
+  var newEl = document.getElementById("ir-new");
+  var widthEl = document.getElementById("ir-width");
+  var heightEl = document.getElementById("ir-height");
+  var lockEl = document.getElementById("ir-lock");
+  var percentEl = document.getElementById("ir-percent");
+  var percentWrap = document.getElementById("ir-percent-wrap");
+  var pixelsWrap = document.getElementById("ir-pixels");
+  var formatEl = document.getElementById("ir-format");
+  var qualityEl = document.getElementById("ir-quality");
+  var qualityVal = document.getElementById("ir-quality-val");
+  var goBtn = document.getElementById("ir-go");
+
+  var file = null, imgEl = null, origW = 0, origH = 0;
+
+  function showError(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
+  }
+  function clearAlerts() { alertEl.innerHTML = ""; }
+  function mode() {
+    var checked = document.querySelector('input[name="ir-mode"]:checked');
+    return checked ? checked.value : "pixels";
+  }
+
+  function updatePreview() {
+    if (!origW) { infoEl.hidden = true; return; }
+    infoEl.hidden = false;
+    origEl.textContent = origW + "×" + origH + " px";
+    var target = computeTarget();
+    newEl.textContent = target ? (target.w + "×" + target.h + " px") : "–";
+  }
+
+  function computeTarget() {
+    if (!origW || !origH) return null;
+    if (mode() === "percent") {
+      var p = parseFloat(percentEl.value);
+      if (!isFinite(p) || p < 1 || p > 200) return null;
+      return { w: Math.max(1, Math.round(origW * p / 100)), h: Math.max(1, Math.round(origH * p / 100)) };
+    }
+    var w = parseInt(widthEl.value, 10), h = parseInt(heightEl.value, 10);
+    if (!isFinite(w) || w < 1 || !isFinite(h) || h < 1) return null;
+    return { w: w, h: h };
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="ir-mode"]'), function (radio) {
+    radio.addEventListener("change", function () {
+      var isPixels = mode() === "pixels";
+      pixelsWrap.hidden = !isPixels;
+      document.getElementById("ir-lock-wrap").style.display = isPixels ? "" : "none";
+      percentWrap.hidden = isPixels;
+      updatePreview();
+    });
+  });
+  widthEl.addEventListener("input", function () {
+    if (lockEl.checked && origW && origH) {
+      var w = parseInt(widthEl.value, 10);
+      if (isFinite(w) && w > 0) heightEl.value = Math.max(1, Math.round(w * origH / origW));
+    }
+    updatePreview();
+  });
+  heightEl.addEventListener("input", function () {
+    if (lockEl.checked && origW && origH) {
+      var h = parseInt(heightEl.value, 10);
+      if (isFinite(h) && h > 0) widthEl.value = Math.max(1, Math.round(h * origW / origH));
+    }
+    updatePreview();
+  });
+  percentEl.addEventListener("input", updatePreview);
+  qualityEl.addEventListener("input", function () { qualityVal.textContent = qualityEl.value; });
+
+  T.renderDropzone(document.getElementById("ir-drop"), {
+    accept: "image/*",
+    labelKey: "j0123",
+    onFiles: function (files) {
+      clearAlerts();
+      file = files[0] || null;
+      imgEl = null; origW = 0; origH = 0;
+      if (!file) { infoEl.hidden = true; return; }
+      T.loadImageFile(file).then(function (img) {
+        imgEl = img;
+        origW = img.naturalWidth; origH = img.naturalHeight;
+        widthEl.value = origW; heightEl.value = origH; percentEl.value = 100;
+        updatePreview();
+      }).catch(function (err) {
+        showError(err && err.message ? err.message : I18N.t("j0204"));
+      });
+    }
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlerts();
+    if (!file || !imgEl) { showError(I18N.t("j0003")); return; }
+    var target = computeTarget();
+    if (!target) { showError(I18N.t("j0172")); return; }
+    var format = formatEl.value;
+    var mime = format === "png" ? "image/png" : format === "webp" ? "image/webp" : "image/jpeg";
+    var ext = format === "png" ? "png" : format === "webp" ? "webp" : "jpg";
+    var canvas = document.createElement("canvas");
+    canvas.width = target.w; canvas.height = target.h;
+    var ctx = canvas.getContext("2d");
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(imgEl, 0, 0, target.w, target.h);
+    goBtn.disabled = true;
+    canvas.toBlob(function (blob) {
+      goBtn.disabled = false;
+      if (!blob) { showError(I18N.t("j0189")); return; }
+      var base = (file.name || "image").replace(/\.[^.]+$/, "") || "image";
+      T.downloadBlob(blob, base + "-" + target.w + "x" + target.h + "." + ext);
+      T.showToast(I18N.t("j1124", { w: target.w, h: target.h }));
+    }, mime, format === "png" ? undefined : parseInt(qualityEl.value, 10) / 100);
+  });
+})();
+</script>
+</body>
+</html>
