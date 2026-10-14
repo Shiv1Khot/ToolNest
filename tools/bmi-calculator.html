@@ -12,6 +12,23 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
 <script defer src="/_vercel/insights/script.js"></script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNest">
+<meta property="og:title" content="BMI Calculator — Body Mass Index &amp; Weight Category | ToolNest">
+<meta property="og:description" content="Free BMI calculator. Enter your height and weight to get your Body Mass Index and see which weight category you fall into.">
+<meta property="og:url" content="https://toolnest-three-zeta.vercel.app/tools/bmi-calculator.html">
+<meta property="og:image" content="https://toolnest-three-zeta.vercel.app/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BMI Calculator — Body Mass Index &amp; Weight Category | ToolNest">
+<meta name="twitter:description" content="Free BMI calculator. Enter your height and weight to get your Body Mass Index and see which weight category you fall into.">
+<meta name="twitter:image" content="https://toolnest-three-zeta.vercel.app/assets/img/og-cover.png">
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is BMI?", "acceptedAnswer": {"@type": "Answer", "text": "Body Mass Index is weight in kilograms divided by height in metres squared. It's a quick screening measure used worldwide to categorise weight relative to height."}}, {"@type": "Question", "name": "What are the BMI categories?", "acceptedAnswer": {"@type": "Answer", "text": "Under 18.5 is underweight, 18.5–24.9 is the healthy range, 25–29.9 is overweight, and 30 or above is obese (WHO cut-offs for adults)."}}, {"@type": "Question", "name": "Is BMI accurate for everyone?", "acceptedAnswer": {"@type": "Answer", "text": "Not perfectly — it doesn't distinguish muscle from fat, so athletes may score high while being very fit. Treat it as a rough guide, not a diagnosis, and talk to a doctor for health decisions."}}]}
+</script>
 </head>
 <body data-base="../">
 
@@ -60,7 +77,39 @@
     </div>
   </section>
 
-  <section class="howto">
+  
+<div class="share-row" style="display:flex;gap:.5rem;align-items:center;margin:1rem 0;flex-wrap:wrap;">
+  <span style="font-size:.88rem;color:var(--muted);font-weight:600;">Share this tool:</span>
+  <button class="btn btn-ghost btn-sm" data-share="x" type="button">𝕏 Post</button>
+  <button class="btn btn-ghost btn-sm" data-share="whatsapp" type="button">WhatsApp</button>
+  <button class="btn btn-ghost btn-sm" data-share="facebook" type="button">Facebook</button>
+  <button class="btn btn-ghost btn-sm" data-share="copy" type="button">Copy link</button>
+</div>
+<script>
+(function(){
+  var buttons = document.querySelectorAll('[data-share]');
+  if (!buttons.length) return;
+  var url = location.href.split('#')[0];
+  var title = document.title.split('|')[0].trim();
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.getAttribute('data-share');
+      var text = encodeURIComponent(title + ' — free online tool');
+      var u = encodeURIComponent(url);
+      if (type === 'x') window.open('https://twitter.com/intent/tweet?text='+text+'&url='+u, '_blank', 'width=550,height=420');
+      else if (type === 'whatsapp') window.open('https://wa.me/?text='+text+'%20'+u, '_blank');
+      else if (type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u='+u, '_blank', 'width=550,height=420');
+      else if (type === 'copy') {
+        (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function(){
+          var t = btn.textContent; btn.textContent = 'Copied!';
+          setTimeout(function(){ btn.textContent = t; }, 1500);
+        }).catch(function(){ prompt('Copy this link:', url); });
+      }
+    });
+  });
+})();
+</script>
+<section class="howto">
     <h2 data-i18n="k00199">How to use</h2>
     <ol>
       <li data-i18n="k00250">Enter your height in centimetres.</li>
