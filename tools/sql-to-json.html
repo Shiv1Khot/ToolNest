@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k01054">SQL to JSON — Parse INSERT Statements Into JSON | ToolNest</title>
+  <meta name="description" content="Free SQL to JSON converter. Parse SQL INSERT statements back into clean JSON in your browser. No signup, no uploads." data-i18n-content="k01055">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k01056">🗄️ SQL to JSON</h1>
+    <p data-i18n="k01057">Parse SQL INSERT statements back into clean JSON.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="SQL to JSON tool" data-i18n-aria="k01058">
+    <div class="field">
+      <label for="stj-input" data-i18n="k01059">SQL input</label>
+      <textarea id="stj-input" style="min-height:170px" placeholder="INSERT INTO users (name, age) VALUES ('Ada', 36), ('Alan', 41);" data-i18n-ph="k01060"></textarea>
+      <p class="hint" data-i18n="k01061">Paste one INSERT INTO … VALUES statement (single or multi-row).</p>
+    </div>
+    <div id="stj-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="stj-go" data-i18n="k01062">🔄 Parse to JSON</button>
+      <button class="btn btn-ghost btn-sm" id="stj-dl" style="display:none" data-i18n="k00416">⬇ Download .json</button>
+      <button class="btn btn-ghost btn-sm" id="stj-copy" style="display:none" data-i18n="k00417">📋 Copy</button>
+    </div>
+    <div class="field" id="stj-out-field" style="display:none">
+      <label for="stj-output" data-i18n="k00331">Result</label>
+      <textarea id="stj-output" readonly style="min-height:220px"></textarea>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n-html="k01063">Paste your <strong>INSERT INTO … VALUES</strong> statement into the box.</li>
+      <li data-i18n-html="k01064">Click <strong>Parse to JSON</strong>.</li>
+      <li data-i18n="k01065">Copy the JSON or download it as a file.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k01066">What SQL does this understand?</summary><p data-i18n-html="k01067">Standard single and multi-row INSERT statements like <em>INSERT INTO users (name, age) VALUES ('Ada', 36), ('Alan', 41);</em>. It is not a full SQL parser — SELECTs, UPDATEs, joins and dialect-specific syntax are out of scope.</p></details>
+    <details><summary data-i18n="k01068">What happens to NULL, TRUE and numbers?</summary><p data-i18n="k01069">NULL becomes JSON null, TRUE/FALSE become JSON booleans, and numeric literals stay numbers. Quoted strings become JSON strings.</p></details>
+    <details><summary data-i18n="k00746">Is my data uploaded anywhere?</summary><p data-i18n="k01070">No. Parsing happens entirely in your browser — your data is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="json-to-sql.html"><span data-i18n="k00157">JSON to SQL</span><span>→</span></a>
+      <a href="json-to-csv.html"><span data-i18n="k00150">JSON to CSV</span><span>→</span></a>
+      <a href="csv-to-excel.html"><span data-i18n="k00144">CSV to Excel</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("stj-input");
+  var alertBox = document.getElementById("stj-alert");
+  var outField = document.getElementById("stj-out-field");
+  var output = document.getElementById("stj-output");
+  var dlBtn = document.getElementById("stj-dl");
+  var copyBtn = document.getElementById("stj-copy");
+  var jsonText = "";
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  // Split on commas that are not inside quotes or parentheses.
+  function splitTopLevel(s) {
+    var out = [], cur = "", quote = null, depth = 0;
+    for (var i = 0; i < s.length; i++) {
+      var c = s[i];
+      if (quote) {
+        cur += c;
+        if (c === quote) {
+          if (quote === "'" && s[i + 1] === "'") { cur += "'"; i++; }
+          else quote = null;
+        }
+      } else if (c === "'" || c === '"' || c === "`") {
+        quote = c; cur += c;
+      } else if (c === "(") {
+        depth++; cur += c;
+      } else if (c === ")") {
+        depth--; cur += c;
+      } else if (c === "," && depth === 0) {
+        out.push(cur); cur = "";
+      } else {
+        cur += c;
+      }
+    }
+    if (cur.trim() !== "") out.push(cur);
+    return out;
+  }
+
+  // Find top-level ( … ) value groups inside the VALUES clause.
+  function splitTuples(s) {
+    var out = [], depth = 0, start = -1, quote = null;
+    for (var i = 0; i < s.length; i++) {
+      var c = s[i];
+      if (quote) {
+        if (c === quote) {
+          if (quote === "'" && s[i + 1] === "'") i++;
+          else quote = null;
+        }
+      } else if (c === "'" || c === '"' || c === "`") {
+        quote = c;
+      } else if (c === "(") {
+        if (depth === 0) start = i;
+        depth++;
+      } else if (c === ")") {
+        depth--;
+        if (depth === 0 && start !== -1) { out.push(s.slice(start + 1, i)); start = -1; }
+      }
+    }
+    return out;
+  }
+
+  function parseLiteral(s) {
+    s = s.trim();
+    if (/^NULL$/i.test(s)) return null;
+    if (/^TRUE$/i.test(s)) return true;
+    if (/^FALSE$/i.test(s)) return false;
+    if (s.length >= 2 && s[0] === "'" && s[s.length - 1] === "'") {
+      return s.slice(1, -1).replace(/''/g, "'");
+    }
+    if (s.length >= 2 && ((s[0] === '"' && s[s.length - 1] === '"') || (s[0] === "`" && s[s.length - 1] === "`"))) {
+      return s.slice(1, -1);
+    }
+    if (/^-?\d+$/.test(s)) return parseInt(s, 10);
+    if (/^-?\d*\.\d+$/.test(s)) return parseFloat(s);
+    return s;
+  }
+
+  // Handles standard single and multi-row INSERT statements; not a full SQL parser.
+  function sqlToJson(sql) {
+    var m = sql.match(/INSERT\s+INTO\s+["'`\[]?(\w+)["'`\]]?\s*(?:\(([^)]+)\))?\s*VALUES\s*([\s\S]+?);?\s*$/i);
+    if (!m) throw new Error(I18N.t("j1436"));
+    var table = m[1];
+    var cols = m[2] ? splitTopLevel(m[2]).map(function (c) {
+      return c.trim().replace(/^["'`\[]|["'`\]]$/g, "");
+    }) : [];
+    var tuples = splitTuples(m[3]);
+    if (!tuples.length) throw new Error(I18N.t("j0146"));
+    var rows = tuples.map(function (t) {
+      var vals = splitTopLevel(t).map(parseLiteral);
+      var obj = {};
+      vals.forEach(function (v, i) {
+        obj[cols[i] || ("col" + (i + 1))] = v;
+      });
+      return obj;
+    });
+    return { table: table, rows: rows };
+  }
+
+  document.getElementById("stj-go").addEventListener("click", function () {
+    var raw = input.value.trim();
+    if (!raw) { showAlert("error", I18N.t("j0173")); return; }
+    var parsed;
+    try {
+      parsed = sqlToJson(raw);
+    } catch (e) {
+      showAlert("error", I18N.t("j0095") + " " + e.message + " " + I18N.t("j0218"));
+      return;
+    }
+    jsonText = JSON.stringify(parsed.rows, null, 2);
+    output.value = jsonText;
+    outField.style.display = "";
+    dlBtn.style.display = "";
+    copyBtn.style.display = "";
+    showAlert("success", I18N.t("j1437", { n: parsed.rows.length, table: parsed.table }));
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!jsonText) return;
+    ToolNest.downloadText(jsonText, "data.json", "application/json;charset=utf-8");
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (!jsonText) { ToolNest.showToast(I18N.t("j0002")); return; }
+    ToolNest.copyText(jsonText, I18N.t("j0005"));
+  });
+})();
+</script>
+</body>
+</html>

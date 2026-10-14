@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k01071">Text to PDF — Convert Plain Text to PDF | ToolNest</title>
+  <meta name="description" content="Free online text to PDF converter. Paste text or upload a .txt file and get a clean, shareable PDF — entirely in your browser." data-i18n-content="k01072">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k01073">📄 Text to PDF</h1>
+    <p data-i18n="k01074">Convert plain text — pasted or uploaded — into a clean PDF document.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Text to PDF tool" data-i18n-aria="k01075">
+    <div id="tp-drop"></div>
+    <div class="field">
+      <label for="tp-text" data-i18n-html="k01076">Or paste text <span class="hint">— type or paste directly, no file needed</span></label>
+      <textarea id="tp-text" style="min-height: 170px"></textarea>
+    </div>
+    <div id="tp-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="tp-go" data-i18n="k00330">Convert to PDF</button>
+    </div>
+    <div class="field">
+      <label data-i18n="k00331">Result</label>
+      <div class="output" id="tp-out"></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n-html="k01077">Either drop a <strong>.txt</strong> file above or paste your text into the box.</li>
+      <li data-i18n-html="k01078">Click <strong>Convert to PDF</strong> — line breaks are kept as written.</li>
+      <li data-i18n-html="k01079">Your <em>document.pdf</em> downloads automatically, ready to share or print.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k01080">Which input wins if I both upload and paste?</summary><p data-i18n="k01081">The uploaded file takes priority. If you want to use pasted text instead, just pick a different file or reload the page and paste only.</p></details>
+    <details><summary data-i18n="k01082">Is the formatting preserved?</summary><p data-i18n="k01083">Line breaks and paragraph spacing are preserved, but this is plain text — there's no bold, italics, or font styling. For styled documents, try the HTML to PDF tool instead.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k01084">No. This tool runs entirely in your browser — your text is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="csv-to-pdf.html"><span data-i18n="k00124">CSV to PDF</span><span>→</span></a>
+      <a href="json-to-pdf.html"><span data-i18n="k00128">JSON to PDF</span><span>→</span></a>
+      <a href="html-to-pdf.html"><span data-i18n="k00130">HTML to PDF</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var alertEl = document.getElementById("tp-alert");
+  var outEl = document.getElementById("tp-out");
+  var textEl = document.getElementById("tp-text");
+  var file = null;
+
+  function showErr(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function showOk(msg) {
+    alertEl.innerHTML = '<div class="alert alert-success">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function clearAlert() { alertEl.innerHTML = ""; }
+
+  ToolNest.renderDropzone(document.getElementById("tp-drop"), {
+    accept: ".txt",
+    labelKey: "j1501",
+    onFiles: function (files) { file = files[0]; clearAlert(); }
+  });
+
+  async function textToPdf(lines) {
+    var PDFDocument = PDFLib.PDFDocument, StandardFonts = PDFLib.StandardFonts, rgb = PDFLib.rgb;
+    var pdf = await PDFDocument.create();
+    var font = await pdf.embedFont(StandardFonts.Helvetica);
+    var fontSize = 11, lineH = 15, margin = 50;
+    var page = pdf.addPage();
+    var y = page.getHeight() - margin;
+    var maxW = page.getWidth() - margin * 2;
+    function wrapped(text) {
+      var words = String(text).split(/\s+/);
+      var out = [], line = "";
+      for (var k = 0; k < words.length; k++) {
+        var w = words[k];
+        var t = line ? line + " " + w : w;
+        if (font.widthOfTextAtSize(t, fontSize) > maxW) { if (line) out.push(line); line = w; }
+        else line = t;
+      }
+      if (line) out.push(line);
+      return out.length ? out : [""];
+    }
+    for (var i = 0; i < lines.length; i++) {
+      var wl = wrapped(lines[i]);
+      for (var j = 0; j < wl.length; j++) {
+        if (y < margin + lineH) { page = pdf.addPage(); y = page.getHeight() - margin; }
+        page.drawText(wl[j], { x: margin, y: y, size: fontSize, font: font, color: rgb(0.1, 0.1, 0.1) });
+        y -= lineH;
+      }
+    }
+    return await pdf.save();
+  }
+
+  document.getElementById("tp-go").addEventListener("click", function () {
+    clearAlert();
+    var pasted = textEl.value;
+    var getText = file ? ToolNest.readAsText(file) : Promise.resolve(pasted);
+    if (!file && !pasted.trim()) {
+      showErr(I18N.t("j0217"));
+      return;
+    }
+    ToolNest.loadScriptOrAlert(ToolNest.CDN.pdfLib, alertEl,
+      I18N.t("j0019")
+    ).then(function (ok) {
+      if (!ok) return;
+      return getText.then(function (text) {
+        if (!text.trim()) {
+          showErr(I18N.t("j0215"));
+          return;
+        }
+        var lines = text.replace(/\r\n?/g, "\n").split("\n");
+        return textToPdf(lines).then(function (bytes) {
+          ToolNest.downloadBlob(new Blob([bytes], { type: "application/pdf" }), "document.pdf");
+          outEl.innerHTML =
+            '<div class="stat-grid">' +
+            '<div class="stat"><div class="v">' + lines.length + '</div><div class="l">' + I18N.t("j1502") + '</div></div>' +
+            '<div class="stat"><div class="v">' + ToolNest.formatBytes(text.length) + '</div><div class="l">' + I18N.t("j1503") + '</div></div>' +
+            '<div class="stat"><div class="v">' + ToolNest.formatBytes(bytes.length) + '</div><div class="l">' + I18N.t("j1504") + '</div></div>' +
+            "</div>";
+          showOk(I18N.t("j0036"));
+        });
+      });
+    }).catch(function (err) {
+      showErr(I18N.t("j0024") + " " + (err && err.message ? err.message : I18N.t("j0029")));
+    });
+  });
+})();
+</script>
+</body>
+</html>

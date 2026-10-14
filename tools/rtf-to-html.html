@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k01024">RTF to HTML — Convert Rich Text to HTML | ToolNest</title>
+  <meta name="description" content="Free online RTF to HTML converter. Turn rich text documents into clean, readable HTML — entirely in your browser." data-i18n-content="k01025">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k01026">📝 RTF to HTML</h1>
+    <p data-i18n="k01027">Convert RTF documents to clean, readable HTML.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="RTF to HTML tool" data-i18n-aria="k01028">
+    <div id="rh-drop"></div>
+    <div id="rh-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="rh-go" data-i18n="k01029">Convert to HTML</button>
+      <button class="btn btn-ghost btn-sm" id="rh-copy" disabled data-i18n="k01030">Copy HTML</button>
+      <button class="btn btn-ghost btn-sm" id="rh-dl" disabled data-i18n="k01031">Download .html</button>
+    </div>
+    <div class="field">
+      <label data-i18n="k01032">Preview</label>
+      <div class="output" id="rh-out" style="background: #ffffff; color: #111111;"></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n-html="k01033">Drop your <strong>.rtf</strong> file onto the upload area.</li>
+      <li data-i18n-html="k01034">Click <strong>Convert to HTML</strong> — the readable text appears in the preview.</li>
+      <li data-i18n-html="k01035">Copy the HTML to your clipboard or download it as a standalone <em>.html</em> file.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k01036">Does the formatting carry over?</summary><p data-i18n="k01037">Only partly. This tool extracts the readable text and its basic paragraph structure — fancy formatting, tables, and embedded images don't survive the conversion. Think of it as a clean text rescue, not a pixel-perfect export.</p></details>
+    <details><summary data-i18n="k01038">What can I do with the downloaded HTML?</summary><p data-i18n="k01039">It's a complete, self-contained HTML file — open it in any browser, paste it into a CMS, or use it as a starting point for further editing.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="html-to-pdf.html"><span data-i18n="k00130">HTML to PDF</span><span>→</span></a>
+      <a href="txt-to-pdf.html"><span data-i18n="k00126">Text to PDF</span><span>→</span></a>
+      <a href="html-to-jpg.html"><span data-i18n="k00132">HTML to JPG</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var alertEl = document.getElementById("rh-alert");
+  var outEl = document.getElementById("rh-out");
+  var copyBtn = document.getElementById("rh-copy");
+  var dlBtn = document.getElementById("rh-dl");
+  var file = null;
+  var lastHtml = "";
+
+  function showErr(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function showOk(msg) {
+    alertEl.innerHTML = '<div class="alert alert-success">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function clearAlert() { alertEl.innerHTML = ""; }
+
+  ToolNest.renderDropzone(document.getElementById("rh-drop"), {
+    accept: ".rtf",
+    labelKey: "j0118",
+    onFiles: function (files) { file = files[0]; clearAlert(); }
+  });
+
+  function rtfToText(rtf) {
+    var out = "", i = 0, skipDepth = -1, depth = 0;
+    var dest = ["fonttbl", "colortbl", "stylesheet", "info", "pict"];
+    while (i < rtf.length) {
+      var c = rtf[i];
+      if (c === "{") { depth++; i++; continue; }
+      if (c === "}") { if (depth === skipDepth) skipDepth = -1; depth--; i++; continue; }
+      if (skipDepth !== -1) { i++; continue; }
+      if (c === "\\") {
+        var m = rtf.slice(i).match(/^\\([a-z]+)(-?\d+)?\s?/);
+        if (m) {
+          var word = m[1];
+          if (word === "par" || word === "line") out += "\n";
+          else if (word === "tab") out += "\t";
+          else if (word === "'") { /* hex handled below */ }
+          else if (word === "*") { skipDepth = depth; }
+          else if (dest.indexOf(word) !== -1) { skipDepth = depth; }
+          i += m[0].length; continue;
+        }
+        var h = rtf.slice(i).match(/^\\'([0-9a-fA-F]{2})/);
+        if (h) { out += String.fromCharCode(parseInt(h[1], 16)); i += 4; continue; }
+        i += 2; continue; // escaped char like \\ \{ \}
+      }
+      out += c; i++;
+    }
+    return out;
+  }
+
+  document.getElementById("rh-go").addEventListener("click", function () {
+    clearAlert();
+    if (!file) {
+      showErr(I18N.t("j1424"));
+      return;
+    }
+    ToolNest.readAsText(file).then(function (rtf) {
+      if (rtf.slice(0, 6) !== "{\\rtf" && rtf.indexOf("\\rtf") === -1) {
+        showErr(I18N.t("j1425"));
+        return;
+      }
+      var text = rtfToText(rtf).replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+      if (!text) {
+        showErr(I18N.t("j1426"));
+        return;
+      }
+      lastHtml = ToolNest.escapeHtml(text).replace(/\n/g, "<br>");
+      outEl.innerHTML = lastHtml;
+      copyBtn.disabled = false;
+      dlBtn.disabled = false;
+      showOk(I18N.t("j1427", { size: ToolNest.formatBytes(text.length) }));
+    }).catch(function () {
+      showErr(I18N.t("j1428"));
+    });
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (lastHtml) ToolNest.copyText(lastHtml, I18N.t("j1429"));
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!lastHtml) return;
+    var shell = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n" +
+      "<title>" + I18N.t("j1430") + "</title>\n</head>\n<body>\n<p>" + lastHtml + "</p>\n</body>\n</html>\n";
+    var name = (file ? file.name.replace(/\.rtf$/i, "") : "document") + ".html";
+    ToolNest.downloadText(shell, name, "text/html;charset=utf-8");
+  });
+})();
+</script>
+</body>
+</html>

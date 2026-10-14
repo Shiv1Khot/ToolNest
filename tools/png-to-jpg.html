@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00971">PNG to JPG — Convert PNG Images to JPG | ToolNest</title>
+  <meta name="description" content="Convert PNG images to smaller JPG files for free. Adjust the quality slider and everything runs in your browser — no uploads." data-i18n-content="k00972">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00973">🖼️ PNG to JPG</h1>
+    <p data-i18n="k00974">Turn PNG images into smaller JPG files, with a quality slider.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="PNG to JPG tool" data-i18n-aria="k00975">
+    <div id="xx-drop"></div>
+    <div id="xx-alert"></div>
+    <div class="field" id="xx-quality-wrap">
+      <label for="xx-quality"><span data-i18n="k00452">Quality: </span><span id="xx-quality-val">92%</span></label>
+      <input type="range" id="xx-quality" min="10" max="100" value="92">
+      <div class="hint" data-i18n="k00976">Lower quality = smaller file. 92% is a good balance for most photos.</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="xx-go" data-i18n="k00977">Convert to JPG</button>
+    </div>
+    <div id="xx-stats"></div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00978">Drop a PNG image into the upload box, or click it to pick a file.</li>
+      <li data-i18n="k00979">Move the quality slider until the size-versus-quality trade-off looks right — 92% suits most images.</li>
+      <li data-i18n-html="k00980">Hit <strong>Convert to JPG</strong> and the new file downloads automatically.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00981">Will the JPG look as sharp as my PNG?</summary><p data-i18n="k00982">At high quality settings the difference is nearly invisible. JPG uses lossy compression, so tiny details can soften if you push the slider very low — stay above 80% when image quality matters.</p></details>
+    <details><summary data-i18n="k00983">Why is my converted file still big?</summary><p data-i18n="k00984">Photos with lots of detail don't compress much. Try lowering the quality a little; each step down shrinks the file noticeably.</p></details>
+    <details><summary data-i18n="k00985">My PNG had a transparent background. What happens to it?</summary><p data-i18n="k00986">JPG can't store transparency, so clear areas become white. The converter fills the background with white before saving.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="jpg-to-png.html"><span data-i18n="k00081">JPG to PNG</span><span>→</span></a>
+      <a href="webp-to-jpg.html"><span data-i18n="k00085">WebP to JPG</span><span>→</span></a>
+      <a href="heic-to-jpg.html"><span data-i18n="k00089">HEIC to JPG</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var dropEl = document.getElementById("xx-drop");
+  var alertEl = document.getElementById("xx-alert");
+  var goBtn = document.getElementById("xx-go");
+  var qualityWrap = document.getElementById("xx-quality-wrap");
+  var quality = document.getElementById("xx-quality");
+  var qualityVal = document.getElementById("xx-quality-val");
+  var statsEl = document.getElementById("xx-stats");
+  var picked = null;
+
+  function showError(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function clearAlert() { alertEl.innerHTML = ""; }
+  function showStats(before, after) {
+    var saved = before > 0 ? Math.round((1 - after / before) * 100) : 0;
+    statsEl.innerHTML =
+      '<div class="stat-grid">' +
+      '<div class="stat"><span class="stat-label">' + I18N.t("j1418") + '</span><strong>' + ToolNest.escapeHtml(ToolNest.formatBytes(before)) + "</strong></div>" +
+      '<div class="stat"><span class="stat-label">' + I18N.t("j1419") + '</span><strong>' + ToolNest.escapeHtml(ToolNest.formatBytes(after)) + "</strong></div>" +
+      '<div class="stat"><span class="stat-label">' + I18N.t("j1420") + '</span><strong>' + (saved >= 0 ? "\u2212" : "+") + ToolNest.escapeHtml(String(Math.abs(saved))) + "%</strong></div>" +
+      "</div>";
+  }
+  function baseName(name) {
+    var b = name.replace(/\.[^.\/\\]+$/, "") || "image";
+    return b.replace(/[^a-zA-Z0-9._-]+/g, "_");
+  }
+
+  ToolNest.renderDropzone(dropEl, {
+    accept: "image/png",
+    multiple: false,
+    labelKey: "j0127",
+    onFiles: function (files) { picked = files[0] || null; clearAlert(); statsEl.innerHTML = ""; }
+  });
+
+  quality.addEventListener("input", function () {
+    qualityVal.textContent = quality.value + "%";
+    qualityWrap.querySelector(".hint").textContent = I18N.t("j1417", { q: quality.value });
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlert();
+    if (!picked) { showError(I18N.t("j0003")); return; }
+    goBtn.disabled = true;
+    var finish = function () { goBtn.disabled = false; };
+    ToolNest.loadImageFile(picked).then(function (img) {
+      if (img.naturalWidth < 1 || img.naturalHeight < 1) { showError(I18N.t("j0012")); finish(); return; }
+      var canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+      var q = quality ? quality.value / 100 : undefined;
+      canvas.toBlob(function (blob) {
+        finish();
+        if (!blob) { showError(I18N.t("j0008")); return; }
+        showStats(picked.size, blob.size);
+        ToolNest.downloadBlob(blob, baseName(picked.name) + ".jpg");
+        ToolNest.showToast(I18N.t("j0004"));
+      }, "image/jpeg", q);
+    }).catch(function (e) {
+      finish();
+      showError(e && e.message ? e.message : I18N.t("j0011"));
+    });
+  });
+})();
+</script>
+</body>
+</html>
