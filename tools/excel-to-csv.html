@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel to CSV — Convert XLSX Spreadsheets to CSV | ToolNest</title>
+  <meta name="description" content="Free Excel to CSV converter. Convert XLSX and XLS workbooks to CSV files, one sheet at a time, right in your browser. No signup.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories">
+      <a href="../#text-tools">Text</a>
+      <a href="../#developer-tools">Developer</a>
+      <a href="../#generator-tools">Generators</a>
+      <a href="../#calculator-tools">Calculators</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../">← All tools</a>
+  <div class="tool-head">
+    <h1>📊 Excel to CSV</h1>
+    <p>Convert Excel workbooks to CSV files, one sheet at a time.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Excel to CSV tool">
+    <div id="etc-drop"></div>
+    <div class="field" id="etc-sheet-field" style="display:none">
+      <label for="etc-sheet">Pick a sheet</label>
+      <select id="etc-sheet"></select>
+    </div>
+    <div id="etc-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="etc-go">🔄 Convert to CSV</button>
+      <button class="btn btn-ghost btn-sm" id="etc-dl" style="display:none">⬇ Download .csv</button>
+    </div>
+    <div class="field" id="etc-preview-field" style="display:none">
+      <label>Preview — first 8 rows</label>
+      <div id="etc-preview"></div>
+    </div>
+    <div class="privacy-note">🔒 <span><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2>How to use</h2>
+    <ol>
+      <li>Drop an <strong>.xlsx</strong>, <strong>.xls</strong> or <strong>.csv</strong> file onto the box above.</li>
+      <li>Choose which sheet to convert from the sheet picker.</li>
+      <li>Click <strong>Convert to CSV</strong> — you'll see the first 8 rows before downloading.</li>
+      <li>Hit <strong>Download .csv</strong> to save your file.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>FAQs</h2>
+    <details><summary>Can I convert all sheets at once?</summary><p>Not yet — each sheet becomes its own CSV file, so pick the sheet you need and convert it. You can repeat the process for other sheets.</p></details>
+    <details><summary>Will my formatting and formulas survive?</summary><p>Formula <em>results</em> come through, but formatting, charts and macros do not — a CSV stores plain text values only.</p></details>
+    <details><summary>Is my file uploaded anywhere?</summary><p>No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="csv-to-excel.html"><span>CSV to Excel</span><span>→</span></a>
+      <a href="excel-to-json.html"><span>Excel to JSON</span><span>→</span></a>
+      <a href="excel-to-xml.html"><span>Excel to XML</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#calculator-tools">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var alertBox = document.getElementById("etc-alert");
+  var sheetField = document.getElementById("etc-sheet-field");
+  var sheetSel = document.getElementById("etc-sheet");
+  var previewField = document.getElementById("etc-preview-field");
+  var preview = document.getElementById("etc-preview");
+  var dlBtn = document.getElementById("etc-dl");
+  var file = null;
+  var csvText = "";
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  ToolNest.renderDropzone(document.getElementById("etc-drop"), {
+    accept: ".xlsx,.xls,.csv",
+    label: "Drag & drop your Excel file here",
+    onFiles: function (files) {
+      file = files[0] || null;
+      csvText = "";
+      previewField.style.display = "none";
+      dlBtn.style.display = "none";
+      sheetField.style.display = "none";
+      showAlert("", "");
+      if (!file) return;
+      ToolNest.loadScriptOrAlert(ToolNest.CDN.xlsx, alertBox, "The spreadsheet engine failed to download. Check your connection and try again.").then(function (ok) {
+        if (!ok) return;
+        ToolNest.readAsArrayBuffer(file).then(function (buf) {
+          var wb;
+          try {
+            wb = XLSX.read(buf, { type: "array" });
+          } catch (e) {
+            showAlert("error", "Couldn't read " + file.name + ". Make sure it's a valid Excel file.");
+            return;
+          }
+          sheetSel.innerHTML = "";
+          wb.SheetNames.forEach(function (name) {
+            var opt = document.createElement("option");
+            opt.value = name;
+            opt.textContent = name;
+            sheetSel.appendChild(opt);
+          });
+          sheetSel.dataset.wb = "";
+          sheetField.style.display = "";
+          // stash the workbook on the element for reuse
+          sheetSel._wb = wb;
+          showAlert("success", "Loaded " + wb.SheetNames.length + " sheet" + (wb.SheetNames.length === 1 ? "" : "s") + " from " + file.name);
+        }).catch(function () {
+          showAlert("error", "Couldn't read " + file.name + ". Please try again.");
+        });
+      });
+    }
+  });
+
+  document.getElementById("etc-go").addEventListener("click", function () {
+    if (!file) { showAlert("error", "Please drop an Excel file first."); return; }
+    if (!sheetSel._wb) { showAlert("error", "The workbook is still loading — give it a moment and try again."); return; }
+    var ws = sheetSel._wb.Sheets[sheetSel.value];
+    if (!ws) { showAlert("error", "That sheet couldn't be found."); return; }
+    try {
+      csvText = XLSX.utils.sheet_to_csv(ws);
+    } catch (e) {
+      showAlert("error", "Something went wrong converting that sheet. Try a different one.");
+      return;
+    }
+    var rows = ToolNest.parseCSV(csvText).slice(0, 8);
+    if (!rows.length) { showAlert("error", "That sheet looks empty — nothing to convert."); return; }
+    var cols = Math.max.apply(null, rows.map(function (r) { return r.length; }));
+    var html = '<div class="result-table-wrap"><table class="result-table"><tbody>' +
+      rows.map(function (r) {
+        var cells = "";
+        for (var i = 0; i < cols; i++) {
+          cells += "<td>" + ToolNest.escapeHtml(r[i] === undefined ? "" : r[i]) + "</td>";
+        }
+        return "<tr>" + cells + "</tr>";
+      }).join("") + "</tbody></table></div>";
+    preview.innerHTML = html;
+    previewField.style.display = "";
+    dlBtn.style.display = "";
+    showAlert("success", "Sheet \"" + sheetSel.value + "\" converted — preview above.");
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!csvText) return;
+    var name = (file.name.replace(/\.[^.]+$/, "") || "sheet") + "-" + sheetSel.value.replace(/[^\w\- ]+/g, "_") + ".csv";
+    ToolNest.downloadText(csvText, name, "text/csv;charset=utf-8");
+  });
+})();
+</script>
+</body>
+</html>

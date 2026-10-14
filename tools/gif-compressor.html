@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF Compressor — Shrink GIF Images | ToolNest</title>
+  <meta name="description" content="Free GIF compressor that turns a GIF's still frame into a much smaller WebP, PNG, or JPEG file. Runs fully in your browser — no uploads, no signup.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories">
+      <a href="../#text-tools">Text</a>
+      <a href="../#developer-tools">Developer</a>
+      <a href="../#generator-tools">Generators</a>
+      <a href="../#calculator-tools">Calculators</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../">← All tools</a>
+  <div class="tool-head">
+    <h1>🗜️ GIF Compressor</h1>
+    <p>Extract a GIF's still frame and compress it into a much smaller file.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="GIF Compressor tool">
+    <div id="gif-drop"></div>
+    <div id="gif-alert"></div>
+    <div class="alert alert-success">Heads up: browsers can't re-encode animated GIFs — this tool compresses the first still frame. Animation is not preserved.</div>
+    <div class="field">
+      <label>Original file</label>
+      <div class="output" id="gif-info" hidden>No GIF loaded yet — drop one in above.</div>
+    </div>
+    <div class="field">
+      <label for="gif-fmt">Output format</label>
+      <select id="gif-fmt">
+        <option value="webp" selected>WebP (recommended)</option>
+        <option value="png">PNG</option>
+        <option value="jpeg">JPEG</option>
+      </select>
+      <p class="hint">WebP keeps transparency and is usually the smallest. JPEG can't keep transparency.</p>
+    </div>
+    <div class="field" id="gif-qfield">
+      <label for="gif-q">Quality: <output id="gif-qv">80</output>%</label>
+      <input type="range" id="gif-q" min="10" max="100" value="80" step="1">
+      <p class="hint">Lower quality = smaller file.</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="gif-go">Compress &amp; Download</button>
+    </div>
+    <div class="stat-grid" id="gif-stats" hidden>
+      <div class="stat"><div class="v" id="gif-before">—</div><div class="l">Before</div></div>
+      <div class="stat"><div class="v" id="gif-after">—</div><div class="l">After</div></div>
+      <div class="stat"><div class="v" id="gif-saved">—</div><div class="l">Saved</div></div>
+    </div>
+    <div class="privacy-note">🔒 <span><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2>How to use</h2>
+    <ol>
+      <li>Drop a GIF into the box above (or click to choose one).</li>
+      <li>Pick an output format — WebP is recommended for the smallest file.</li>
+      <li>Adjust the quality slider if your format uses one.</li>
+      <li>Hit <strong>Compress &amp; Download</strong> — remember, you get a still image, not an animation.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>FAQs</h2>
+    <details><summary>Why isn't my GIF animated anymore?</summary><p>Browsers can read the frames of a GIF but can't write a new animated GIF — there's no GIF encoder built in. So this tool saves the first still frame in a modern, much smaller format instead. If you need to keep the animation, an animated GIF simply can't be re-encoded here.</p></details>
+    <details><summary>Which output is smallest?</summary><p>WebP, usually by a wide margin — it compresses better than PNG and keeps transparency unlike JPEG. Pick WebP unless you need the file to open in very old software.</p></details>
+    <details><summary>Is my GIF uploaded anywhere?</summary><p>No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="image-compressor.html"><span>Image Compressor</span><span>→</span></a>
+      <a href="png-to-jpg.html"><span>PNG to JPG</span><span>→</span></a>
+      <a href="webp-to-jpg.html"><span>WebP to JPG</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#calculator-tools">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.ToolNest;
+  var alertEl = document.getElementById("gif-alert");
+  var infoEl = document.getElementById("gif-info");
+  var statsEl = document.getElementById("gif-stats");
+  var beforeEl = document.getElementById("gif-before");
+  var afterEl = document.getElementById("gif-after");
+  var savedEl = document.getElementById("gif-saved");
+  var goBtn = document.getElementById("gif-go");
+  var fmtEl = document.getElementById("gif-fmt");
+  var qEl = document.getElementById("gif-q");
+  var qvEl = document.getElementById("gif-qv");
+  var qField = document.getElementById("gif-qfield");
+  var FORMATS = {
+    webp: { mime: "image/webp", ext: ".webp", quality: true },
+    png: { mime: "image/png", ext: ".png", quality: false },
+    jpeg: { mime: "image/jpeg", ext: ".jpg", quality: true }
+  };
+  var st = { img: null, name: "image", size: 0, w: 0, h: 0 };
+
+  function clearAlert() { alertEl.innerHTML = ""; }
+  function showErr(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
+  }
+  function syncQualityVisibility() {
+    var usesQ = FORMATS[fmtEl.value].quality;
+    qField.style.display = usesQ ? "" : "none";
+  }
+
+  T.renderDropzone(document.getElementById("gif-drop"), {
+    accept: "image/gif",
+    label: "Drag & drop a GIF here",
+    onFiles: function (files) {
+      var f = files[0];
+      clearAlert();
+      if (f.type !== "image/gif" && !/\.gif$/i.test(f.name || "")) {
+        showErr("That doesn't look like a GIF file — please pick a .gif image.");
+        return;
+      }
+      T.loadImageFile(f).then(function (img) {
+        st.img = img;
+        st.size = f.size;
+        st.w = img.naturalWidth || img.width;
+        st.h = img.naturalHeight || img.height;
+        st.name = ((f.name || "image").replace(/\.[^.]*$/, "") || "image");
+        infoEl.hidden = false;
+        infoEl.textContent = "Original: " + st.w + "×" + st.h + " — " + T.formatBytes(st.size);
+      }).catch(function (err) {
+        showErr(err && err.message ? err.message : "Couldn't read that file. Try a different GIF.");
+      });
+    }
+  });
+
+  qEl.addEventListener("input", function () { qvEl.textContent = qEl.value; });
+  fmtEl.addEventListener("change", syncQualityVisibility);
+  syncQualityVisibility();
+
+  goBtn.addEventListener("click", function () {
+    clearAlert();
+    if (!st.img) { showErr("Add a GIF first — drop one into the box above."); return; }
+    var fmt = FORMATS[fmtEl.value] || FORMATS.webp;
+    var q = Math.min(100, Math.max(10, parseInt(qEl.value, 10) || 80)) / 100;
+    var c = document.createElement("canvas");
+    c.width = st.w; c.height = st.h;
+    var x = c.getContext("2d");
+    if (fmt.mime === "image/jpeg") { x.fillStyle = "#ffffff"; x.fillRect(0, 0, st.w, st.h); }
+    x.drawImage(st.img, 0, 0, st.w, st.h);
+    c.toBlob(function (blob) {
+      if (!blob) { showErr("Something went wrong while compressing. Please try again."); return; }
+      var saved = st.size > 0 ? Math.max(0, Math.round((1 - blob.size / st.size) * 100)) : 0;
+      beforeEl.textContent = T.formatBytes(st.size);
+      afterEl.textContent = T.formatBytes(blob.size);
+      savedEl.textContent = saved + "%";
+      statsEl.hidden = false;
+      T.downloadBlob(blob, st.name + "-compressed" + fmt.ext);
+    }, fmt.mime, fmt.quality ? q : undefined);
+  });
+})();
+</script>
+</body>
+</html>
