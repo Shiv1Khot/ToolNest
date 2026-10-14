@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00483">HEIC to PDF — Turn HEIC Photos Into a PDF | ToolNest</title>
+  <meta name="description" content="Bundle HEIC photos into a single PDF document for free. Convert and merge right in your browser — no uploads." data-i18n-content="k00484">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00485">📱 HEIC to PDF</h1>
+    <p data-i18n="k00486">Bundle HEIC photos into a single PDF document.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="HEIC to PDF tool" data-i18n-aria="k00487">
+    <div id="xx-drop"></div>
+    <div id="xx-alert"></div>
+    <div class="field">
+      <div class="hint" data-i18n="k00488">Add up to 50 photos. Each photo becomes one full-size page, in the order you selected them.</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="xx-go" data-i18n="k00471">Convert</button>
+    </div>
+    <div id="xx-stats"></div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00489">Drop your HEIC photos into the upload box — you can select several at once.</li>
+      <li data-i18n-html="k00490">Press <strong>Convert</strong>. Each photo is decoded on your device and placed on its own PDF page.</li>
+      <li data-i18n="k00491">The finished PDF (named photos.pdf) downloads automatically.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00492">Can I convert multiple HEIC photos at once?</summary><p data-i18n="k00493">Yes — select up to 50 photos in one go. They become full-size pages in a single PDF, in the order you picked them.</p></details>
+    <details><summary data-i18n="k00494">How big will the PDF be?</summary><p data-i18n="k00495">Each page is saved at 90% JPEG quality inside the PDF, so expect roughly the same total size as converting each photo to JPG individually.</p></details>
+    <details><summary data-i18n="k00496">Will the PDF pages match my photo dimensions?</summary><p data-i18n="k00497">Yes — every page is sized to its photo's exact width and height, so nothing is cropped or stretched.</p></details>
+    <details><summary data-i18n="k00481">Is my photo uploaded anywhere?</summary><p data-i18n="k00498">No. Both the HEIC decoder and the PDF builder run inside your browser — your photos are never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="heic-to-jpg.html"><span data-i18n="k00089">HEIC to JPG</span><span>→</span></a>
+      <a href="heic-to-png.html"><span data-i18n="k00091">HEIC to PNG</span><span>→</span></a>
+      <a href="webp-to-jpg.html"><span data-i18n="k00085">WebP to JPG</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var dropEl = document.getElementById("xx-drop");
+  var alertEl = document.getElementById("xx-alert");
+  var goBtn = document.getElementById("xx-go");
+  var statsEl = document.getElementById("xx-stats");
+  var picked = [];
+
+  function showError(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function clearAlert() { alertEl.innerHTML = ""; }
+  function setBusy(busy) {
+    goBtn.disabled = busy;
+    goBtn.textContent = busy ? I18N.t("j0084") : I18N.t("j1106");
+  }
+
+  ToolNest.renderDropzone(dropEl, {
+    accept: ".heic,.heif,image/heic",
+    multiple: true,
+    labelKey: "j0124",
+    onFiles: function (files) { picked = files; clearAlert(); statsEl.innerHTML = ""; }
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlert();
+    if (!picked.length) { showError(I18N.t("j0164")); return; }
+    if (picked.length > 50) { showError(I18N.t("j0166")); return; }
+    setBusy(true);
+    var files = picked.slice();
+    ToolNest.loadScriptOrAlert(ToolNest.CDN.heic2any, alertEl,
+      I18N.t("j0027")).then(function (ok) {
+      if (!ok) return null;
+      return ToolNest.loadScriptOrAlert(ToolNest.CDN.pdfLib, alertEl,
+        I18N.t("j0208"));
+    }).then(function (ok) {
+      if (!ok) return null;
+      // Decode every HEIC to a JPEG first.
+      var chain = Promise.resolve([]);
+      files.forEach(function (f) {
+        chain = chain.then(function (list) {
+          return heic2any({ blob: f, toType: "image/jpeg", quality: 0.9 }).then(function (out) {
+            var blob = Array.isArray(out) ? out[0] : out;
+            if (!blob) throw new Error("decode failed: " + f.name);
+            list.push(blob);
+            return list;
+          });
+        });
+      });
+      return chain.then(function (jpegBlobs) {
+        return PDFLib.PDFDocument.create().then(function (pdf) {
+          var pageChain = Promise.resolve();
+          jpegBlobs.forEach(function (blob) {
+            pageChain = pageChain.then(function () {
+              return blob.arrayBuffer().then(function (bytes) {
+                return pdf.embedJpg(bytes).then(function (img) {
+                  var page = pdf.addPage([img.width, img.height]);
+                  page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+                });
+              });
+            });
+          });
+          return pageChain.then(function () { return pdf.save(); });
+        });
+      });
+    }).then(function (pdfBytes) {
+      if (!pdfBytes) return;
+      var blob = new Blob([pdfBytes], { type: "application/pdf" });
+      statsEl.innerHTML =
+        '<div class="stat-grid">' +
+        '<div class="stat"><span class="stat-label">' + I18N.t("j1109") + '</span><strong>' + ToolNest.escapeHtml(String(files.length)) + "</strong></div>" +
+        '<div class="stat"><span class="stat-label">' + I18N.t("j1110") + '</span><strong>' + ToolNest.escapeHtml(ToolNest.formatBytes(blob.size)) + "</strong></div>" +
+        "</div>";
+      ToolNest.downloadBlob(blob, "photos.pdf");
+      ToolNest.showToast(I18N.t("j0157"));
+    }).catch(function () {
+      showError(I18N.t("j0153"));
+    }).then(function () { setBusy(false); }, function () { setBusy(false); });
+  });
+})();
+</script>
+</body>
+</html>

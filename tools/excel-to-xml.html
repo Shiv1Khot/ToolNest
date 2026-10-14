@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Excel to XML — Convert Spreadsheets to XML | ToolNest</title>
-  <meta name="description" content="Free Excel to XML converter. Convert spreadsheet data into structured, well-formed XML in your browser. No signup, no uploads.">
+  <title data-i18n="k00425">Excel to XML — Convert Spreadsheets to XML | ToolNest</title>
+  <meta name="description" content="Free Excel to XML converter. Convert spreadsheet data into structured, well-formed XML in your browser. No signup, no uploads." data-i18n-content="k00426">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -13,87 +13,87 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
-    <nav class="main-nav" aria-label="Categories">
-      <a href="../#text-tools">Text</a>
-      <a href="../#developer-tools">Developer</a>
-      <a href="../#generator-tools">Generators</a>
-      <a href="../#calculator-tools">Calculators</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
     </nav>
-    <div class="header-actions">
-      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
-      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
     </div>
   </div>
 </header>
 
 <main class="container tool-page">
-  <a class="breadcrumb" href="../">← All tools</a>
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
   <div class="tool-head">
-    <h1>📊 Excel to XML</h1>
-    <p>Convert spreadsheet data into structured XML.</p>
+    <h1 data-i18n="k00427">📊 Excel to XML</h1>
+    <p data-i18n="k00428">Convert spreadsheet data into structured XML.</p>
   </div>
 
-  <section class="tool-ui" aria-label="Excel to XML tool">
+  <section class="tool-ui" aria-label="Excel to XML tool" data-i18n-aria="k00429">
     <div id="etx-drop"></div>
     <div class="field" id="etx-sheet-field" style="display:none">
-      <label for="etx-sheet">Pick a sheet</label>
+      <label for="etx-sheet" data-i18n="k00397">Pick a sheet</label>
       <select id="etx-sheet"></select>
-      <p class="hint">The first row provides the element names for each row.</p>
+      <p class="hint" data-i18n="k00430">The first row provides the element names for each row.</p>
     </div>
     <div id="etx-alert"></div>
     <div class="btn-row">
-      <button class="btn btn-primary btn-sm" id="etx-go">🔄 Convert to XML</button>
-      <button class="btn btn-ghost btn-sm" id="etx-dl" style="display:none">⬇ Download .xml</button>
+      <button class="btn btn-primary btn-sm" id="etx-go" data-i18n="k00431">🔄 Convert to XML</button>
+      <button class="btn btn-ghost btn-sm" id="etx-dl" style="display:none" data-i18n="k00432">⬇ Download .xml</button>
     </div>
     <div class="field" id="etx-out-field" style="display:none">
-      <label for="etx-output">Result</label>
+      <label for="etx-output" data-i18n="k00331">Result</label>
       <textarea id="etx-output" readonly style="min-height:220px"></textarea>
     </div>
-    <div class="privacy-note">🔒 <span><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
   </section>
 
   <section class="howto">
-    <h2>How to use</h2>
+    <h2 data-i18n="k00199">How to use</h2>
     <ol>
-      <li>Drop an <strong>.xlsx</strong> or <strong>.xls</strong> file onto the box above.</li>
-      <li>Choose the sheet to convert — its header row becomes the XML element names.</li>
-      <li>Click <strong>Convert to XML</strong> and download the well-formed XML file.</li>
+      <li data-i18n-html="k00418">Drop an <strong>.xlsx</strong> or <strong>.xls</strong> file onto the box above.</li>
+      <li data-i18n="k00433">Choose the sheet to convert — its header row becomes the XML element names.</li>
+      <li data-i18n-html="k00434">Click <strong>Convert to XML</strong> and download the well-formed XML file.</li>
     </ol>
   </section>
 
   <section class="faq">
-    <h2>FAQs</h2>
-    <details><summary>How are element names created from headers?</summary><p>Each header cell becomes an element name, cleaned up for XML: spaces and special characters turn into underscores, and names that would be invalid get a leading underscore.</p></details>
-    <details><summary>Is the XML escaped properly?</summary><p>Yes. Ampersands, angle brackets and quotes in your data are escaped, so the output is always well-formed XML.</p></details>
-    <details><summary>Is my file uploaded anywhere?</summary><p>No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00435">How are element names created from headers?</summary><p data-i18n="k00436">Each header cell becomes an element name, cleaned up for XML: spaces and special characters turn into underscores, and names that would be invalid get a leading underscore.</p></details>
+    <details><summary data-i18n="k00437">Is the XML escaped properly?</summary><p data-i18n="k00438">Yes. Ampersands, angle brackets and quotes in your data are escaped, so the output is always well-formed XML.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
   </section>
 
   <section class="related">
-    <h2>Related tools</h2>
+    <h2 data-i18n="k00210">Related tools</h2>
     <div class="related-grid">
-      <a href="excel-to-json.html"><span>Excel to JSON</span><span>→</span></a>
-      <a href="json-to-xml.html"><span>JSON to XML</span><span>→</span></a>
-      <a href="xml-to-json.html"><span>XML to JSON</span><span>→</span></a>
+      <a href="excel-to-json.html"><span data-i18n="k00146">Excel to JSON</span><span>→</span></a>
+      <a href="json-to-xml.html"><span data-i18n="k00154">JSON to XML</span><span>→</span></a>
+      <a href="xml-to-json.html"><span data-i18n="k00161">XML to JSON</span><span>→</span></a>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
-    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#calculator-tools">Calculators</a></nav>
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
   </div>
 </footer>
 
-<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
     <div class="search-results" id="search-results"></div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
 <script src="../assets/js/file-tools.js"></script>
 <script>
 (function () {
@@ -123,7 +123,7 @@
 
   ToolNest.renderDropzone(document.getElementById("etx-drop"), {
     accept: ".xlsx,.xls,.csv",
-    label: "Drag & drop your Excel file here",
+    labelKey: "j0038",
     onFiles: function (files) {
       file = files[0] || null;
       xmlText = "";
@@ -133,14 +133,14 @@
       sheetField.style.display = "none";
       showAlert("", "");
       if (!file) return;
-      ToolNest.loadScriptOrAlert(ToolNest.CDN.xlsx, alertBox, "The spreadsheet engine failed to download. Check your connection and try again.").then(function (ok) {
+      ToolNest.loadScriptOrAlert(ToolNest.CDN.xlsx, alertBox, I18N.t("j0020")).then(function (ok) {
         if (!ok) return;
         ToolNest.readAsArrayBuffer(file).then(function (buf) {
           var wb;
           try {
             wb = XLSX.read(buf, { type: "array" });
           } catch (e) {
-            showAlert("error", "Couldn't read " + file.name + ". Make sure it's a valid Excel file.");
+            showAlert("error", I18N.t("j1101", { name: file.name }));
             return;
           }
           sheetSel.innerHTML = "";
@@ -152,27 +152,27 @@
           });
           sheetSel._wb = wb;
           sheetField.style.display = "";
-          showAlert("success", "Loaded " + wb.SheetNames.length + " sheet" + (wb.SheetNames.length === 1 ? "" : "s") + " from " + file.name);
+          showAlert("success", I18N.t("j1102", { n: wb.SheetNames.length, name: file.name }));
         }).catch(function () {
-          showAlert("error", "Couldn't read " + file.name + ". Please try again.");
+          showAlert("error", I18N.t("j1103", { name: file.name }));
         });
       });
     }
   });
 
   document.getElementById("etx-go").addEventListener("click", function () {
-    if (!file) { showAlert("error", "Please drop an Excel file first."); return; }
-    if (!sheetSel._wb) { showAlert("error", "The workbook is still loading — give it a moment and try again."); return; }
+    if (!file) { showAlert("error", I18N.t("j0049")); return; }
+    if (!sheetSel._wb) { showAlert("error", I18N.t("j0064")); return; }
     var ws = sheetSel._wb.Sheets[sheetSel.value];
-    if (!ws) { showAlert("error", "That sheet couldn't be found."); return; }
+    if (!ws) { showAlert("error", I18N.t("j0058")); return; }
     var rows;
     try {
       rows = XLSX.utils.sheet_to_json(ws, { defval: "" });
     } catch (e) {
-      showAlert("error", "Something went wrong converting that sheet. Try a different one.");
+      showAlert("error", I18N.t("j0056"));
       return;
     }
-    if (!rows.length) { showAlert("error", "That sheet looks empty — nothing to convert."); return; }
+    if (!rows.length) { showAlert("error", I18N.t("j0059")); return; }
     var parts = ['<?xml version="1.0" encoding="UTF-8"?>', "<rows>"];
     rows.forEach(function (row) {
       parts.push("  <row>");
@@ -187,7 +187,7 @@
     output.value = xmlText;
     outField.style.display = "";
     dlBtn.style.display = "";
-    showAlert("success", "Converted " + rows.length + " row" + (rows.length === 1 ? "" : "s") + " from sheet \"" + sheetSel.value + "\".");
+    showAlert("success", I18N.t("j1104", { n: rows.length, sheet: sheetSel.value }));
   });
 
   dlBtn.addEventListener("click", function () {

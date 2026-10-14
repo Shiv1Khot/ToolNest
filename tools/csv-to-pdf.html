@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSV to PDF — Convert CSV to a PDF Table | ToolNest</title>
-  <meta name="description" content="Free online CSV to PDF converter. Turn a spreadsheet export into a clean, printable PDF table — entirely in your browser.">
+  <title data-i18n="k00324">CSV to PDF — Convert CSV to a PDF Table | ToolNest</title>
+  <meta name="description" content="Free online CSV to PDF converter. Turn a spreadsheet export into a clean, printable PDF table — entirely in your browser." data-i18n-content="k00325">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -13,90 +13,90 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
-    <nav class="main-nav" aria-label="Categories">
-      <a href="../#text-tools">Text</a>
-      <a href="../#developer-tools">Developer</a>
-      <a href="../#generator-tools">Generators</a>
-      <a href="../#calculator-tools">Calculators</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
     </nav>
-    <div class="header-actions">
-      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
-      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
     </div>
   </div>
 </header>
 
 <main class="container tool-page">
-  <a class="breadcrumb" href="../">← All tools</a>
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
   <div class="tool-head">
-    <h1>📄 CSV to PDF</h1>
-    <p>Turn a CSV file into a neatly formatted PDF table.</p>
+    <h1 data-i18n="k00326">📄 CSV to PDF</h1>
+    <p data-i18n="k00327">Turn a CSV file into a neatly formatted PDF table.</p>
   </div>
 
-  <section class="tool-ui" aria-label="CSV to PDF tool">
+  <section class="tool-ui" aria-label="CSV to PDF tool" data-i18n-aria="k00328">
     <div id="cp-drop"></div>
     <div class="field">
-      <label for="cp-delim">Delimiter</label>
+      <label for="cp-delim" data-i18n="k00308">Delimiter</label>
       <select id="cp-delim">
-        <option value="comma">Comma (,)</option>
-        <option value="semi">Semicolon (;)</option>
-        <option value="tab">Tab</option>
+        <option value="comma" data-i18n="k00309">Comma (,)</option>
+        <option value="semi" data-i18n="k00310">Semicolon (;)</option>
+        <option value="tab" data-i18n="k00311">Tab</option>
       </select>
-      <span class="hint">Match the separator your file uses — European exports often use semicolons.</span>
+      <span class="hint" data-i18n="k00329">Match the separator your file uses — European exports often use semicolons.</span>
     </div>
     <div id="cp-alert"></div>
     <div class="btn-row">
-      <button class="btn btn-primary btn-sm" id="cp-go">Convert to PDF</button>
+      <button class="btn btn-primary btn-sm" id="cp-go" data-i18n="k00330">Convert to PDF</button>
     </div>
     <div class="field">
-      <label>Result</label>
+      <label data-i18n="k00331">Result</label>
       <div class="output" id="cp-out"></div>
     </div>
-    <div class="privacy-note">🔒 <span><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
   </section>
 
   <section class="howto">
-    <h2>How to use</h2>
+    <h2 data-i18n="k00199">How to use</h2>
     <ol>
-      <li>Drop your CSV file (or a .txt export) onto the upload area above.</li>
-      <li>Pick the delimiter your data uses — comma, semicolon, or tab.</li>
-      <li>Hit <strong>Convert to PDF</strong> and a print-ready <em>table.pdf</em> downloads automatically.</li>
+      <li data-i18n="k00332">Drop your CSV file (or a .txt export) onto the upload area above.</li>
+      <li data-i18n="k00333">Pick the delimiter your data uses — comma, semicolon, or tab.</li>
+      <li data-i18n-html="k00334">Hit <strong>Convert to PDF</strong> and a print-ready <em>table.pdf</em> downloads automatically.</li>
     </ol>
   </section>
 
   <section class="faq">
-    <h2>FAQs</h2>
-    <details><summary>Which delimiter should I choose?</summary><p>Most CSV files use commas. If your file came from a spreadsheet set to a European locale, it probably uses semicolons. Tab-separated files are common in database exports. If the table looks wrong, just try another delimiter and convert again.</p></details>
-    <details><summary>What happens to very long cell text?</summary><p>Cells are truncated with an ellipsis (…) so every column stays visible on the page. The tool keeps as much text as fits the column width — it's designed for readable printouts, not full-data dumps.</p></details>
-    <details><summary>Is my file uploaded anywhere?</summary><p>No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00335">Which delimiter should I choose?</summary><p data-i18n="k00336">Most CSV files use commas. If your file came from a spreadsheet set to a European locale, it probably uses semicolons. Tab-separated files are common in database exports. If the table looks wrong, just try another delimiter and convert again.</p></details>
+    <details><summary data-i18n="k00337">What happens to very long cell text?</summary><p data-i18n="k00338">Cells are truncated with an ellipsis (…) so every column stays visible on the page. The tool keeps as much text as fits the column width — it's designed for readable printouts, not full-data dumps.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
   </section>
 
   <section class="related">
-    <h2>Related tools</h2>
+    <h2 data-i18n="k00210">Related tools</h2>
     <div class="related-grid">
-      <a href="json-to-pdf.html"><span>JSON to PDF</span><span>→</span></a>
-      <a href="txt-to-pdf.html"><span>Text to PDF</span><span>→</span></a>
-      <a href="excel-to-csv.html"><span>Excel to CSV</span><span>→</span></a>
+      <a href="json-to-pdf.html"><span data-i18n="k00128">JSON to PDF</span><span>→</span></a>
+      <a href="txt-to-pdf.html"><span data-i18n="k00126">Text to PDF</span><span>→</span></a>
+      <a href="excel-to-csv.html"><span data-i18n="k00142">Excel to CSV</span><span>→</span></a>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
-    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#calculator-tools">Calculators</a></nav>
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
   </div>
 </footer>
 
-<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
     <div class="search-results" id="search-results"></div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
 <script src="../assets/js/file-tools.js"></script>
 <script>
 (function () {
@@ -115,7 +115,7 @@
 
   ToolNest.renderDropzone(document.getElementById("cp-drop"), {
     accept: ".csv,.txt",
-    label: "Drag & drop your CSV file here",
+    labelKey: "j0037",
     onFiles: function (files) { file = files[0]; clearAlert(); }
   });
 
@@ -132,11 +132,11 @@
   document.getElementById("cp-go").addEventListener("click", function () {
     clearAlert();
     if (!file) {
-      showErr("Please choose a CSV file first — drag one in or click Select File.");
+      showErr(I18N.t("j0161"));
       return;
     }
     ToolNest.loadScriptOrAlert(ToolNest.CDN.pdfLib, alertEl,
-      "The PDF library couldn't be downloaded. Check your internet connection and try again."
+      I18N.t("j0019")
     ).then(function (ok) {
       if (!ok) return;
       return ToolNest.readAsText(file).then(function (text) {
@@ -144,7 +144,7 @@
         var delim = sel === "semi" ? ";" : sel === "tab" ? "\t" : ",";
         var rows = ToolNest.parseCSV(text, delim);
         if (!rows.length) {
-          showErr("That file doesn't seem to contain any rows. Is it a valid CSV with the right delimiter?");
+          showErr(I18N.t("j0205"));
           return;
         }
         var cols = 0;
@@ -205,20 +205,20 @@
                 ToolNest.downloadBlob(new Blob([bytes], { type: "application/pdf" }), "table.pdf");
                 outEl.innerHTML =
                   '<div class="stat-grid">' +
-                  '<div class="stat"><div class="v">' + (data.length - 1) + '</div><div class="l">Data rows</div></div>' +
-                  '<div class="stat"><div class="v">' + cols + '</div><div class="l">Columns</div></div>' +
-                  '<div class="stat"><div class="v">' + pages + '</div><div class="l">PDF pages</div></div>' +
-                  '<div class="stat"><div class="v">' + ToolNest.formatBytes(bytes.length) + '</div><div class="l">File size</div></div>' +
+                  '<div class="stat"><div class="v">' + (data.length - 1) + '</div><div class="l">' + I18N.t("j1020") + '</div></div>' +
+                  '<div class="stat"><div class="v">' + cols + '</div><div class="l">' + I18N.t("j1021") + '</div></div>' +
+                  '<div class="stat"><div class="v">' + pages + '</div><div class="l">' + I18N.t("j1022") + '</div></div>' +
+                  '<div class="stat"><div class="v">' + ToolNest.formatBytes(bytes.length) + '</div><div class="l">' + I18N.t("j1023") + '</div></div>' +
                   "</div>" +
-                  (capped ? "<p>Note: only the first 10 columns were included to keep the table readable.</p>" : "");
-                showOk("Done — table.pdf has been downloaded.");
+                  (capped ? "<p>" + I18N.t("j1024") + "</p>" : "");
+                showOk(I18N.t("j0108"));
               });
             });
           });
         });
       });
     }).catch(function (err) {
-      showErr("Something went wrong while building the PDF: " + (err && err.message ? err.message : "please try again."));
+      showErr(I18N.t("j0024") + " " + (err && err.message ? err.message : I18N.t("j0029")));
     });
   });
 })();
