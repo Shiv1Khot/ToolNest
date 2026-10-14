@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k01178">XML to JSON — Convert XML Documents to JSON | ToolNest</title>
+  <meta name="description" content="Free XML to JSON converter. Turn XML documents into JSON you can actually work with, right in your browser. No signup, no uploads." data-i18n-content="k01179">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k01180">📊 XML to JSON</h1>
+    <p data-i18n="k01181">Convert XML documents into JSON you can actually work with.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="XML to JSON tool" data-i18n-aria="k01182">
+    <div class="field">
+      <label for="xtj-input" data-i18n="k01183">XML input</label>
+      <textarea id="xtj-input" style="min-height:170px" placeholder="<order id="42"><item>book</item><item>pen</item></order>" data-i18n-ph="k01184"></textarea>
+      <p class="hint" data-i18n="k01185">Paste XML, or drop an .xml file below.</p>
+    </div>
+    <div id="xtj-drop"></div>
+    <div id="xtj-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="xtj-go" data-i18n="k00415">🔄 Convert to JSON</button>
+      <button class="btn btn-ghost btn-sm" id="xtj-dl" style="display:none" data-i18n="k00416">⬇ Download .json</button>
+      <button class="btn btn-ghost btn-sm" id="xtj-copy" style="display:none" data-i18n="k00417">📋 Copy</button>
+    </div>
+    <div class="field" id="xtj-out-field" style="display:none">
+      <label for="xtj-output" data-i18n="k00331">Result</label>
+      <textarea id="xtj-output" readonly style="min-height:220px"></textarea>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k01186">Paste your XML into the box, or drop an .xml file.</li>
+      <li data-i18n-html="k01187">Click <strong>Convert to JSON</strong>.</li>
+      <li data-i18n="k01065">Copy the JSON or download it as a file.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k01188">How are attributes and repeated elements handled?</summary><p data-i18n-html="k01189">Attributes land under an <em>"@attributes"</em> key, and repeated sibling elements become arrays — so <em>&lt;item&gt;a&lt;/item&gt;&lt;item&gt;b&lt;/item&gt;</em> becomes <em>"item": ["a", "b"]</em>.</p></details>
+    <details><summary data-i18n="k01190">My XML won't parse — what now?</summary><p data-i18n="k01191">The converter uses your browser's XML parser and shows its error message verbatim. The most common culprits are unescaped ampersands (&amp; should be &amp;amp;) and unclosed tags.</p></details>
+    <details><summary data-i18n="k00746">Is my data uploaded anywhere?</summary><p data-i18n="k00747">No. Conversion happens entirely in your browser — your data is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="json-to-xml.html"><span data-i18n="k00154">JSON to XML</span><span>→</span></a>
+      <a href="excel-to-xml.html"><span data-i18n="k00148">Excel to XML</span><span>→</span></a>
+      <a href="xml-to-table-viewer.html"><span data-i18n="k00167">XML Table Viewer</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("xtj-input");
+  var alertBox = document.getElementById("xtj-alert");
+  var outField = document.getElementById("xtj-out-field");
+  var output = document.getElementById("xtj-output");
+  var dlBtn = document.getElementById("xtj-dl");
+  var copyBtn = document.getElementById("xtj-copy");
+  var jsonText = "";
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  // attributes -> "@attributes", repeated children -> arrays, single text child -> string
+  function xmlToJson(el) {
+    if (el.nodeType === 3) return el.nodeValue.trim();
+    var obj = {};
+    if (el.attributes && el.attributes.length) {
+      obj["@attributes"] = {};
+      Array.prototype.forEach.call(el.attributes, function (a) {
+        obj["@attributes"][a.name] = a.value;
+      });
+    }
+    var text = "";
+    Array.prototype.forEach.call(el.childNodes, function (n) {
+      if (n.nodeType === 3) {
+        var t = n.nodeValue.trim();
+        if (t) text += (text ? " " : "") + t;
+      } else if (n.nodeType === 1) {
+        var child = xmlToJson(n);
+        var name = n.nodeName;
+        if (obj[name] === undefined) {
+          obj[name] = child;
+        } else {
+          if (!Array.isArray(obj[name])) obj[name] = [obj[name]];
+          obj[name].push(child);
+        }
+      }
+    });
+    var elementKeys = Object.keys(obj).filter(function (k) { return k !== "@attributes"; });
+    if (elementKeys.length === 0) {
+      if (obj["@attributes"]) {
+        if (text) obj["#text"] = text;
+        return obj;
+      }
+      return text;
+    }
+    if (text) obj["#text"] = text;
+    return obj;
+  }
+
+  function convert() {
+    var raw = input.value.trim();
+    if (!raw) { showAlert("error", I18N.t("j0050")); return; }
+    var doc;
+    try {
+      doc = new DOMParser().parseFromString(raw, "application/xml");
+    } catch (e) {
+      showAlert("error", I18N.t("j0034") + " " + e.message);
+      return;
+    }
+    var err = doc.getElementsByTagName("parsererror");
+    if (err.length) {
+      showAlert("error", I18N.t("j0195") + " " + (err[0].textContent || I18N.t("j0240")).trim().slice(0, 300));
+      return;
+    }
+    var root = doc.documentElement;
+    if (!root) { showAlert("error", I18N.t("j0057")); return; }
+    var result = {};
+    result[root.nodeName] = xmlToJson(root);
+    try {
+      jsonText = JSON.stringify(result, null, 2);
+    } catch (e) {
+      showAlert("error", I18N.t("j0186"));
+      return;
+    }
+    output.value = jsonText;
+    outField.style.display = "";
+    dlBtn.style.display = "";
+    copyBtn.style.display = "";
+    showAlert("success", I18N.t("j0227"));
+  }
+
+  ToolNest.renderDropzone(document.getElementById("xtj-drop"), {
+    accept: ".xml,.txt",
+    labelKey: "j0045",
+    onFiles: function (files) {
+      var f = files[0];
+      if (!f) return;
+      ToolNest.readAsText(f).then(function (text) {
+        input.value = text;
+        showAlert("success", I18N.t("j1512", { name: f.name }));
+      }).catch(function () {
+        showAlert("error", I18N.t("j1513", { name: f.name }));
+      });
+    }
+  });
+
+  document.getElementById("xtj-go").addEventListener("click", convert);
+
+  dlBtn.addEventListener("click", function () {
+    if (!jsonText) return;
+    ToolNest.downloadText(jsonText, "data.json", "application/json;charset=utf-8");
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (!jsonText) { ToolNest.showToast(I18N.t("j0002")); return; }
+    ToolNest.copyText(jsonText, I18N.t("j0005"));
+  });
+})();
+</script>
+</body>
+</html>
