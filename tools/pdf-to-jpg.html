@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00905">PDF to JPG — Convert PDF Pages to JPG Images | ToolNest</title>
+  <meta name="description" content="Render every PDF page as a JPG image at the DPI you choose. Free, private, and runs entirely in your browser." data-i18n-content="k00906">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00907">🖼️ PDF to JPG</h1>
+    <p data-i18n="k00908">Render every PDF page as a JPG image at the DPI you choose.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="PDF to JPG tool" data-i18n-aria="k00909">
+    <div id="ptj-drop"></div>
+    <div id="ptj-alert"></div>
+    <div class="field">
+      <label for="ptj-dpi" data-i18n="k00910">Render quality (DPI)</label>
+      <select id="ptj-dpi">
+        <option value="72" data-i18n="k00911">72 DPI — quick preview</option>
+        <option value="150" selected data-i18n="k00912">150 DPI — good balance</option>
+        <option value="300" data-i18n="k00913">300 DPI — high quality (slow on long PDFs)</option>
+      </select>
+      <div class="hint" data-i18n="k00914">300 DPI on long PDFs is slow — stick to 150 for big documents.</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="ptj-go" data-i18n="k00915">Render Pages</button>
+      <button class="btn btn-ghost btn-sm" id="ptj-all" disabled data-i18n="k00916">Download all pages</button>
+    </div>
+    <div class="thumb-grid" id="pj-thumbs"></div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00917">Drop a PDF into the box above, or click it to pick one from your device.</li>
+      <li data-i18n="k00918">Pick a DPI — higher means sharper images but slower rendering.</li>
+      <li data-i18n-html="k00919">Press <strong>Render Pages</strong>, then download pages one by one or grab them all at once.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00920">Which DPI should I choose?</summary><p data-i18n="k00921">72 is fine for quick previews, 150 is a good balance for sharing and printing at small sizes, and 300 gives print-quality images but renders much more slowly — especially on long PDFs.</p></details>
+    <details><summary data-i18n="k00922">Can I download all pages at once?</summary><p data-i18n-html="k00923">Yes — use <strong>Download all pages</strong>. Browsers save them one after another with a short pause in between so nothing gets skipped.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="jpg-to-pdf.html"><span data-i18n="k00107">JPG to PDF</span><span>→</span></a>
+      <a href="pdf-to-json.html"><span data-i18n="k00136">PDF to JSON</span><span>→</span></a>
+      <a href="image-to-text.html"><span data-i18n="k00599">Image to Text</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.ToolNest;
+  var alertEl = document.getElementById("ptj-alert");
+  var thumbsEl = document.getElementById("pj-thumbs");
+  var dpiEl = document.getElementById("ptj-dpi");
+  var goBtn = document.getElementById("ptj-go");
+  var allBtn = document.getElementById("ptj-all");
+
+  var file = null;
+  var rendered = []; // canvases, one per page
+  var baseName = "page";
+
+  function showError(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
+  }
+  function clearAlerts() { alertEl.innerHTML = ""; }
+
+  function downloadCanvas(canvas, filename) {
+    return new Promise(function (resolve) {
+      canvas.toBlob(function (blob) {
+        if (blob) T.downloadBlob(blob, filename);
+        resolve();
+      }, "image/jpeg", 0.92);
+    });
+  }
+
+  T.renderDropzone(document.getElementById("ptj-drop"), {
+    accept: ".pdf",
+    labelKey: "j0016",
+    onFiles: function (files) {
+      clearAlerts();
+      file = files[0] || null;
+      rendered = [];
+      thumbsEl.innerHTML = "";
+      allBtn.disabled = true;
+      if (file) baseName = (file.name || "page").replace(/\.pdf$/i, "") || "page";
+    }
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlerts();
+    if (!file) { showError(I18N.t("j0162")); return; }
+    var dpi = parseInt(dpiEl.value, 10) || 150;
+    goBtn.disabled = true;
+    allBtn.disabled = true;
+    thumbsEl.innerHTML = "";
+    rendered = [];
+    alertEl.innerHTML = '<div class="alert">' + I18N.t("j1401", { dpi: dpi }) + "</div>";
+    T.loadScriptOrAlert(T.CDN.pdfjs, alertEl, I18N.t("j0213"))
+      .then(function (ok) {
+        if (!ok) return null;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = T.CDN.pdfjsWorker;
+        return T.readAsArrayBuffer(file).then(function (buf) {
+          return pdfjsLib.getDocument({ data: buf }).promise;
+        });
+      })
+      .then(function (pdf) {
+        if (!pdf) return null;
+        var chain = Promise.resolve();
+        for (var n = 1; n <= pdf.numPages; n++) {
+          (function (pageNum) {
+            chain = chain.then(function () {
+              return pdf.getPage(pageNum).then(function (page) {
+                var viewport = page.getViewport({ scale: dpi / 72 });
+                var canvas = document.createElement("canvas");
+                canvas.width = Math.floor(viewport.width);
+                canvas.height = Math.floor(viewport.height);
+                var ctx = canvas.getContext("2d");
+                return page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function () {
+                  rendered.push(canvas);
+                  var thumb = document.createElement("div");
+                  thumb.className = "thumb";
+                  var small = document.createElement("canvas");
+                  var maxSide = 260;
+                  var s = Math.min(1, maxSide / Math.max(canvas.width, canvas.height));
+                  small.width = Math.max(1, Math.floor(canvas.width * s));
+                  small.height = Math.max(1, Math.floor(canvas.height * s));
+                  small.getContext("2d").drawImage(canvas, 0, 0, small.width, small.height);
+                  var label = document.createElement("div");
+                  label.textContent = I18N.t("j1402", { n: pageNum });
+                  var dl = document.createElement("button");
+                  dl.className = "btn btn-ghost btn-sm";
+                  dl.textContent = I18N.t("j1403", { n: pageNum });
+                  dl.addEventListener("click", function () {
+                    downloadCanvas(canvas, baseName + "-page-" + pageNum + ".jpg");
+                  });
+                  thumb.appendChild(small);
+                  thumb.appendChild(label);
+                  thumb.appendChild(dl);
+                  thumbsEl.appendChild(thumb);
+                });
+              });
+            });
+          })(n);
+        }
+        return chain.then(function () { return pdf; });
+      })
+      .then(function (pdf) {
+        if (!pdf) return;
+        clearAlerts();
+        if (!rendered.length) {
+          showError(I18N.t("j0192"));
+          return;
+        }
+        alertEl.innerHTML = '<div class="alert alert-success">' + I18N.t("j1404", { n: rendered.length, dpi: dpi }) + "</div>";
+        allBtn.disabled = false;
+      })
+      .catch(function (err) {
+        clearAlerts();
+        thumbsEl.innerHTML = "";
+        rendered = [];
+        showError(err && err.message ? err.message : I18N.t("j0099"));
+      })
+      .finally(function () { goBtn.disabled = false; });
+  });
+
+  allBtn.addEventListener("click", function () {
+    if (!rendered.length) return;
+    allBtn.disabled = true;
+    var i = 0;
+    function next() {
+      if (i >= rendered.length) { allBtn.disabled = false; return; }
+      var pageNum = i + 1;
+      downloadCanvas(rendered[i], baseName + "-page-" + pageNum + ".jpg").then(function () {
+        i++;
+        setTimeout(next, 400);
+      });
+    }
+    next();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00809">JSON to XML — Convert JSON Objects to XML | ToolNest</title>
+  <meta name="description" content="Free JSON to XML converter. Turn JSON objects into well-formed XML in your browser. No signup, no uploads." data-i18n-content="k00810">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00811">📊 JSON to XML</h1>
+    <p data-i18n="k00155">Convert JSON objects into well-formed XML.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="JSON to XML tool" data-i18n-aria="k00812">
+    <div class="field">
+      <label for="jtxml-input" data-i18n="k00715">JSON input</label>
+      <textarea id="jtxml-input" style="min-height:170px" placeholder="{"order": {"id": 42, "items": ["book", "pen"]}}" data-i18n-ph="k00813"></textarea>
+    </div>
+    <div id="jtxml-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="jtxml-go" data-i18n="k00431">🔄 Convert to XML</button>
+      <button class="btn btn-ghost btn-sm" id="jtxml-dl" style="display:none" data-i18n="k00432">⬇ Download .xml</button>
+      <button class="btn btn-ghost btn-sm" id="jtxml-copy" style="display:none" data-i18n="k00417">📋 Copy</button>
+    </div>
+    <div class="field" id="jtxml-out-field" style="display:none">
+      <label for="jtxml-output" data-i18n="k00331">Result</label>
+      <textarea id="jtxml-output" readonly style="min-height:220px"></textarea>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00754">Paste your JSON into the box above.</li>
+      <li data-i18n-html="k00814">Click <strong>Convert to XML</strong>.</li>
+      <li data-i18n="k00815">Copy the XML or download it as a file.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00816">How are arrays handled?</summary><p data-i18n-html="k00817">Each array item becomes a repeated <em>&lt;item&gt;</em> element inside the parent — for example, <em>{"tags": ["a", "b"]}</em> becomes <em>&lt;tags&gt;&lt;item&gt;a&lt;/item&gt;&lt;item&gt;b&lt;/item&gt;&lt;/tags&gt;</em>.</p></details>
+    <details><summary data-i18n="k00818">What if my JSON keys aren't valid XML names?</summary><p data-i18n="k00819">They're cleaned up automatically: spaces and special characters become underscores, and names that would be invalid get a leading underscore.</p></details>
+    <details><summary data-i18n="k00746">Is my data uploaded anywhere?</summary><p data-i18n="k00747">No. Conversion happens entirely in your browser — your data is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="xml-to-json.html"><span data-i18n="k00161">XML to JSON</span><span>→</span></a>
+      <a href="excel-to-xml.html"><span data-i18n="k00148">Excel to XML</span><span>→</span></a>
+      <a href="json-to-yaml.html"><span data-i18n="k00159">JSON to YAML</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("jtxml-input");
+  var alertBox = document.getElementById("jtxml-alert");
+  var outField = document.getElementById("jtxml-out-field");
+  var output = document.getElementById("jtxml-output");
+  var dlBtn = document.getElementById("jtxml-dl");
+  var copyBtn = document.getElementById("jtxml-copy");
+  var xmlText = "";
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  function xmlEscape(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+  }
+
+  function safeTag(name) {
+    var tag = String(name).trim().replace(/[^A-Za-z0-9_.-]/g, "_") || "field";
+    if (/^[0-9.-]/.test(tag)) tag = "_" + tag;
+    return tag;
+  }
+
+  // Recursive: arrays become repeated <item> elements; root is <root>.
+  function jsonToXml(val, name) {
+    name = name || "root";
+    if (val === null || val === undefined) return "<" + name + "/>";
+    if (Array.isArray(val)) {
+      return val.map(function (v) { return jsonToXml(v, "item"); }).join("");
+    }
+    if (typeof val === "object") {
+      var inner = Object.keys(val).map(function (k) {
+        return jsonToXml(val[k], safeTag(k));
+      }).join("");
+      return "<" + name + ">" + inner + "</" + name + ">";
+    }
+    return "<" + name + ">" + xmlEscape(val) + "</" + name + ">";
+  }
+
+  document.getElementById("jtxml-go").addEventListener("click", function () {
+    var raw = input.value.trim();
+    if (!raw) { showAlert("error", I18N.t("j0010")); return; }
+    var parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (e) {
+      showAlert("error", I18N.t("j0013") + " " + e.message);
+      return;
+    }
+    try {
+      xmlText = '<?xml version="1.0" encoding="UTF-8"?>\n' + jsonToXml(parsed, "root");
+    } catch (e) {
+      showAlert("error", I18N.t("j0055"));
+      return;
+    }
+    output.value = xmlText;
+    outField.style.display = "";
+    dlBtn.style.display = "";
+    copyBtn.style.display = "";
+    showAlert("success", I18N.t("j0138"));
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!xmlText) return;
+    ToolNest.downloadText(xmlText, "data.xml", "application/xml;charset=utf-8");
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (!xmlText) { ToolNest.showToast(I18N.t("j0002")); return; }
+    ToolNest.copyText(xmlText, I18N.t("j0228"));
+  });
+})();
+</script>
+</body>
+</html>

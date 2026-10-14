@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00924">PDF to JSON — Extract PDF Text Into JSON | ToolNest</title>
+  <meta name="description" content="Free online PDF to JSON converter. Extract the text of every PDF page into clean, structured JSON — entirely in your browser." data-i18n-content="k00925">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00926">📄 PDF to JSON</h1>
+    <p data-i18n="k00927">Extract the text of every PDF page into structured JSON.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="PDF to JSON tool" data-i18n-aria="k00928">
+    <div id="pj-drop"></div>
+    <div id="pj-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="pj-go" data-i18n="k00929">Extract to JSON</button>
+    </div>
+    <div class="field">
+      <label data-i18n-html="k00930">Preview <span class="hint">— first 2000 characters</span></label>
+      <div class="output" id="pj-out"></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n-html="k00931">Drop your <strong>.pdf</strong> file onto the upload area.</li>
+      <li data-i18n-html="k00932">Click <strong>Extract to JSON</strong> — each page's text is collected in order.</li>
+      <li data-i18n-html="k00933">A preview appears above and the full <em>.json</em> file downloads automatically.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00934">My PDF came out empty — why?</summary><p data-i18n-html="k00935">Scanned PDFs are images, not text, so there's nothing to extract. Try the <a href="pdf-to-ocr.html">PDF to Text (OCR)</a> tool instead — it reads scanned pages visually.</p></details>
+    <details><summary data-i18n="k00936">Is the layout preserved?</summary><p data-i18n="k00937">No. The JSON holds plain running text per page — column positions, fonts, and table structure are not preserved. It's built for data processing, not faithful re-creation.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00302">No. This tool runs entirely in your browser — your file is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="pdf-to-ocr.html"><span data-i18n="k00138">PDF to Text (OCR)</span><span>→</span></a>
+      <a href="pdf-to-jpg.html"><span data-i18n="k00109">PDF to JPG</span><span>→</span></a>
+      <a href="json-to-table-viewer.html"><span data-i18n="k00600">JSON to Table Viewer</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var alertEl = document.getElementById("pj-alert");
+  var outEl = document.getElementById("pj-out");
+  var file = null;
+
+  function showErr(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function showOk(msg) {
+    alertEl.innerHTML = '<div class="alert alert-success">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function clearAlert() { alertEl.innerHTML = ""; }
+
+  ToolNest.renderDropzone(document.getElementById("pj-drop"), {
+    accept: ".pdf",
+    labelKey: "j0117",
+    onFiles: function (files) { file = files[0]; clearAlert(); }
+  });
+
+  document.getElementById("pj-go").addEventListener("click", async function () {
+    clearAlert();
+    if (!file) {
+      showErr(I18N.t("j0048"));
+      return;
+    }
+    var ok = await ToolNest.loadScriptOrAlert(ToolNest.CDN.pdfjs, alertEl,
+      I18N.t("j0062"));
+    if (!ok) return;
+    if (typeof pdfjsLib === "undefined") {
+      showErr(I18N.t("j0212"));
+      return;
+    }
+    try {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = ToolNest.CDN.pdfjsWorker;
+      var data = await ToolNest.readAsArrayBuffer(file);
+      var pdf = await pdfjsLib.getDocument({ data: data }).promise;
+      var pages = [];
+      for (var i = 1; i <= pdf.numPages; i++) {
+        var page = await pdf.getPage(i);
+        var tc = await page.getTextContent();
+        var text = tc.items.map(function (it) { return it.str; }).join(" ").replace(/\s+/g, " ").trim();
+        pages.push({ page: i, text: text });
+      }
+      var result = { source: file.name, pages: pages };
+      var json = JSON.stringify(result, null, 2);
+      outEl.textContent = json.slice(0, 2000) + (json.length > 2000 ? I18N.t("j1405") : "");
+      var outName = file.name.replace(/\.pdf$/i, "") + ".json";
+      ToolNest.downloadText(json, outName, "application/json;charset=utf-8");
+      var empty = pages.filter(function (p) { return !p.text; }).length;
+      showOk(empty === pages.length
+        ? I18N.t("j1406")
+        : I18N.t("j1407", { name: outName, n: pages.length }));
+    } catch (e) {
+      showErr(I18N.t("j0098"));
+    }
+  });
+})();
+</script>
+</body>
+</html>
