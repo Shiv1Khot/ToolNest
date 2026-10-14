@@ -35,7 +35,11 @@
 }
 
 * { box-sizing: border-box; }
+/* Respect the `hidden` attribute even where component display rules would override it
+   (e.g. .btn sets display:inline-flex, .stat-grid sets display:grid). */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
 body {
   margin: 0;
   font-family: var(--font);
@@ -76,11 +80,34 @@ img, svg { max-width: 100%; }
   display: inline-flex; align-items: center; gap: .45rem; font-family: inherit;
 }
 .icon-btn:hover { border-color: var(--accent); }
-/* Language toggle: compact EN | हिं pill */
-.lang-toggle { padding: .45rem .6rem; font-weight: 600; }
-.lang-toggle .lang-opt { color: var(--muted); font-size: .82rem; padding: .1rem .3rem; border-radius: 5px; }
-.lang-toggle .lang-opt.active { color: var(--accent-text); background: var(--accent); }
-.lang-toggle .lang-sep { color: var(--border); font-weight: 400; }
+/* Language picker: compact dropdown with searchable list */
+.lang-picker { position: relative; }
+.lang-btn { font-weight: 600; max-width: 11rem; }
+.lang-btn [data-lang-current] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lang-btn .lang-caret { color: var(--muted); font-size: .7rem; }
+.lang-btn.loading { opacity: .55; pointer-events: none; }
+.lang-menu {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+  width: 260px; max-height: 330px; display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(0,0,0,.18); overflow: hidden;
+}
+.lang-menu[hidden] { display: none; }
+[dir="rtl"] .lang-menu { right: auto; left: 0; }
+.lang-search {
+  margin: .5rem; padding: .45rem .6rem; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text);
+  font-family: inherit; font-size: .85rem;
+}
+.lang-search:focus { outline: none; border-color: var(--accent); }
+.lang-list { list-style: none; margin: 0; padding: .25rem; overflow-y: auto; }
+.lang-list li {
+  display: flex; justify-content: space-between; align-items: center; gap: .5rem;
+  padding: .45rem .6rem; border-radius: var(--radius-sm); cursor: pointer; font-size: .88rem;
+}
+.lang-list li:hover { background: var(--surface-2); }
+.lang-list li.selected { background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
+.lang-list .lang-code { color: var(--muted); font-size: .75rem; font-family: var(--mono); }
 .icon-btn kbd {
   font-family: var(--mono); font-size: .72rem; background: var(--surface-2);
   border: 1px solid var(--border); border-radius: 5px; padding: .05rem .35rem; color: var(--muted);
@@ -311,6 +338,17 @@ input[type="checkbox"] { width: 1.05rem; height: 1.05rem; accent-color: var(--ac
 .two-col { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 639px) {
+  /* Compact header on phones: icon-only language button, no kbd hint */
+  .header-inner { gap: .5rem; height: 58px; }
+  .logo { font-size: 1.15rem; }
+  .lang-btn { max-width: none; padding: .45rem .55rem; }
+  .lang-btn [data-lang-current], .lang-btn .lang-caret { display: none; }
+  .icon-btn kbd { display: none; }
+  .icon-btn { padding: .45rem .55rem; }
+  .header-actions { gap: .4rem; }
+  .hero { padding: 2.2rem 0 1.8rem; }
+}
 @media (min-width: 640px) {
   .two-col { grid-template-columns: 1fr 1fr; }
   .main-nav { display: flex; }
