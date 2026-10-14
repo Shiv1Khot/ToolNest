@@ -337,6 +337,17 @@ input[type="checkbox"] { width: 1.05rem; height: 1.05rem; accent-color: var(--ac
 .result-table td { font-family: var(--mono); font-size: .8rem; }
 .two-col { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 
+/* Converter tools: input & output side-by-side on desktop, stacked on mobile */
+@media (min-width: 640px) {
+  .tool-ui.io-2col { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 1.2rem; align-items: start; }
+  .tool-ui.io-2col .io-in { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  .tool-ui.io-2col .io-out { grid-column: 2; grid-row: 1; margin-bottom: 0; }
+  .tool-ui.io-2col .io-in textarea, .tool-ui.io-2col .io-out textarea { min-height: 230px; }
+  .tool-ui.io-2col > .btn-row,
+  .tool-ui.io-2col > .privacy-note,
+  .tool-ui.io-2col > p { grid-column: 1 / -1; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 639px) {
   /* Compact header on phones: icon-only language button, no kbd hint */
@@ -348,6 +359,12 @@ input[type="checkbox"] { width: 1.05rem; height: 1.05rem; accent-color: var(--ac
   .icon-btn { padding: .45rem .55rem; }
   .header-actions { gap: .4rem; }
   .hero { padding: 2.2rem 0 1.8rem; }
+  /* Language dropdown: full-width sheet pinned under header on phones */
+  .lang-menu {
+    position: fixed; top: 62px; left: .9rem; right: .9rem;
+    width: auto; max-height: 66vh;
+  }
+  [dir="rtl"] .lang-menu { left: .9rem; right: .9rem; }
 }
 @media (min-width: 640px) {
   .two-col { grid-template-columns: 1fr 1fr; }
