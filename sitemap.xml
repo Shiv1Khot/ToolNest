@@ -13,4 +13,50 @@
   <url><loc>https://toolnest-three-zeta.vercel.app/tools/emi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnest-three-zeta.vercel.app/tools/age-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnest-three-zeta.vercel.app/tools/bmi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/compress-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/merge-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/split-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/pdf-remove-pages.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/png-to-jpg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/jpg-to-png.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/webp-to-png.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/webp-to-jpg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/jfif-to-png.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/heic-to-jpg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/heic-to-png.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/heic-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/png-to-svg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/image-resize.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/image-to-text.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/image-to-xml.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/image-to-json.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/jpg-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/pdf-to-jpg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/jpeg-compressor.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/png-compressor.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/gif-compressor.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/image-compressor.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/csv-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/txt-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/html-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/html-to-jpg.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/rtf-to-html.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/pdf-to-json.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/pdf-to-ocr.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/excel-to-csv.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/csv-to-excel.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/excel-to-json.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/excel-to-xml.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-csv.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-excel.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-xml.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-sql.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-yaml.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/xml-to-json.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/sql-to-json.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-to-table-viewer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/xml-to-table-viewer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/leads-extractor.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/invoice-to-table-viewer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
