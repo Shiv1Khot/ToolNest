@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID Generator — Generate UUID v4 Identifiers | ToolNest</title>
+  <meta name="description" content="Free UUID generator. Create version 4 universally unique identifiers, one at a time or in bulk, and copy them instantly.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories">
+      <a href="../#text-tools">Text</a>
+      <a href="../#developer-tools">Developer</a>
+      <a href="../#generator-tools">Generators</a>
+      <a href="../#calculator-tools">Calculators</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../">← All tools</a>
+  <div class="tool-head">
+    <h1>🆔 UUID Generator</h1>
+    <p>Version 4 universally unique identifiers — generate one, or a whole batch for seeding data.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="UUID generator tool">
+    <div class="field">
+      <label for="ug-count">How many? <span class="hint">(1–500)</span></label>
+      <input type="number" id="ug-count" value="1" min="1" max="500" style="max-width:180px">
+    </div>
+    <div class="field">
+      <label class="check-row"><input type="checkbox" id="ug-upper"> Uppercase output</label>
+      <label class="check-row"><input type="checkbox" id="ug-braces"> Wrap in {braces}</label>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="ug-generate">🎲 Generate</button>
+      <button class="btn btn-ghost btn-sm" id="ug-copy">📋 Copy all</button>
+    </div>
+    <div class="field">
+      <label for="ug-output">Generated UUIDs</label>
+      <textarea id="ug-output" readonly placeholder="UUIDs will appear here…"></textarea>
+    </div>
+  </section>
+
+  <section class="howto">
+    <h2>How to use</h2>
+    <ol>
+      <li>Enter how many UUIDs you need (up to 500).</li>
+      <li>Optionally tick uppercase or braces formatting.</li>
+      <li>Click <strong>Generate</strong>, then <strong>Copy all</strong>.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>FAQs</h2>
+    <details><summary>What is a UUID?</summary><p>A Universally Unique Identifier is a 128-bit label like <code>3f6a8c1e-9b2d-4f5a-8c7d-1e2a3b4c5d6e</code>, commonly used as database keys, request IDs and filenames where collisions must be practically impossible.</p></details>
+    <details><summary>What does "version 4" mean?</summary><p>Version 4 UUIDs are generated from random numbers (122 random bits), unlike version 1 which embeds a timestamp and MAC address. They're the most common choice for general use.</p></details>
+    <details><summary>Can two UUIDs collide?</summary><p>In theory yes, in practice no — with 122 random bits you'd need to generate billions per second for a century before a collision becomes likely.</p></details>
+  </section>
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="password-generator.html"><span>Password Generator</span><span>→</span></a>
+      <a href="qr-code-generator.html"><span>QR Code Generator</span><span>→</span></a>
+      <a href="json-formatter.html"><span>JSON Formatter</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>ToolNest</strong> — twelve free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#generator-tools">Generators</a><a href="../#calculator-tools">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+(function () {
+  "use strict";
+  var output = document.getElementById("ug-output");
+  function uuidv4() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    var rnd = new Uint8Array(16);
+    crypto.getRandomValues(rnd);
+    rnd[6] = (rnd[6] & 0x0f) | 0x40;
+    rnd[8] = (rnd[8] & 0x3f) | 0x80;
+    var hex = Array.prototype.map.call(rnd, function (b) {
+      return ("0" + b.toString(16)).slice(-2);
+    }).join("");
+    return hex.slice(0, 8) + "-" + hex.slice(8, 12) + "-" + hex.slice(12, 16) + "-" +
+      hex.slice(16, 20) + "-" + hex.slice(20);
+  }
+  function generate() {
+    var n = parseInt(document.getElementById("ug-count").value, 10);
+    if (isNaN(n) || n < 1) n = 1;
+    if (n > 500) { n = 500; document.getElementById("ug-count").value = 500; ToolNest.showToast("Capped at 500"); }
+    var upper = document.getElementById("ug-upper").checked;
+    var braces = document.getElementById("ug-braces").checked;
+    var list = [];
+    for (var i = 0; i < n; i++) {
+      var u = uuidv4();
+      if (upper) u = u.toUpperCase();
+      if (braces) u = "{" + u + "}";
+      list.push(u);
+    }
+    output.value = list.join("\n");
+  }
+  document.getElementById("ug-generate").addEventListener("click", generate);
+  document.getElementById("ug-copy").addEventListener("click", function () {
+    if (!output.value) { ToolNest.showToast("Generate UUIDs first"); return; }
+    ToolNest.copyText(output.value, "UUIDs copied");
+  });
+  generate();
+})();
+</script>
+</body>
+</html>

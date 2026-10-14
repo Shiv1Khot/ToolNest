@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://toolnest-three-zeta.vercel.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/word-counter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/case-converter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/duplicate-line-remover.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/json-formatter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/base64-tool.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/url-encoder.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/password-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/uuid-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/qr-code-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/emi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/age-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnest-three-zeta.vercel.app/tools/bmi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>

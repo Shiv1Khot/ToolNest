@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter — Count Words, Characters & Reading Time | ToolNest</title>
+  <meta name="description" content="Free online word counter. Count words, characters, sentences and paragraphs as you type, with estimated reading time. No signup, runs in your browser.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories">
+      <a href="../#text-tools">Text</a>
+      <a href="../#developer-tools">Developer</a>
+      <a href="../#generator-tools">Generators</a>
+      <a href="../#calculator-tools">Calculators</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../">← All tools</a>
+  <div class="tool-head">
+    <h1>🔤 Word Counter</h1>
+    <p>Paste or type your text below — words, characters, sentences and reading time update instantly.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Word counter tool">
+    <div class="field">
+      <label for="wc-input">Your text</label>
+      <textarea id="wc-input" placeholder="Start typing or paste your text here…"></textarea>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="v" id="st-words">0</div><div class="l">Words</div></div>
+      <div class="stat"><div class="v" id="st-chars">0</div><div class="l">Characters</div></div>
+      <div class="stat"><div class="v" id="st-sentences">0</div><div class="l">Sentences</div></div>
+      <div class="stat"><div class="v" id="st-paras">0</div><div class="l">Paragraphs</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost btn-sm" id="wc-copy">📋 Copy text</button>
+      <button class="btn btn-ghost btn-sm" id="wc-clear">🗑 Clear</button>
+    </div>
+    <p style="color:var(--muted);font-size:.9rem;margin:0">Estimated reading time: <strong id="st-read">0 min</strong> · speaking time: <strong id="st-speak">0 min</strong></p>
+  </section>
+
+  <section class="howto">
+    <h2>How to use</h2>
+    <ol>
+      <li>Type directly into the box, or paste text from anywhere.</li>
+      <li>Watch the counters update live as you edit — no button needed.</li>
+      <li>Use <strong>Copy text</strong> to grab your text back, or <strong>Clear</strong> to start over.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>FAQs</h2>
+    <details><summary>How are words counted?</summary><p>Text is split on whitespace, so hyphenated compounds like "well-known" count as one word and numbers count as words too — the same convention most editors use.</p></details>
+    <details><summary>Is my text uploaded anywhere?</summary><p>No. Counting happens entirely in your browser with JavaScript. Nothing you type or paste ever leaves your device.</p></details>
+    <details><summary>How is reading time estimated?</summary><p>Reading time assumes 200 words per minute and speaking time 130 words per minute — widely used averages for English text.</p></details>
+  </section>
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="case-converter.html"><span>Case Converter</span><span>→</span></a>
+      <a href="duplicate-line-remover.html"><span>Duplicate Line Remover</span><span>→</span></a>
+      <a href="json-formatter.html"><span>JSON Formatter</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>ToolNest</strong> — twelve free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#generator-tools">Generators</a><a href="../#calculator-tools">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("wc-input");
+  var el = function (id) { return document.getElementById(id); };
+  function update() {
+    var t = input.value;
+    var words = t.trim() ? t.trim().split(/\s+/).length : 0;
+    var chars = t.length;
+    var sentences = t.trim() ? (t.match(/[^.!?]+[.!?]+/g) || []).length || (t.trim() ? 1 : 0) : 0;
+    var paras = t.trim() ? t.trim().split(/\n\s*\n|\n/).filter(function (p) { return p.trim().length; }).length : 0;
+    el("st-words").textContent = words.toLocaleString();
+    el("st-chars").textContent = chars.toLocaleString();
+    el("st-sentences").textContent = sentences.toLocaleString();
+    el("st-paras").textContent = paras.toLocaleString();
+    el("st-read").textContent = fmtTime(words / 200);
+    el("st-speak").textContent = fmtTime(words / 130);
+  }
+  function fmtTime(mins) {
+    if (mins < 1) return Math.max(1, Math.round(mins * 60)) + " sec";
+    if (mins < 60) return Math.round(mins) + " min";
+    return Math.floor(mins / 60) + " hr " + Math.round(mins % 60) + " min";
+  }
+  input.addEventListener("input", update);
+  el("wc-clear").addEventListener("click", function () { input.value = ""; update(); input.focus(); });
+  el("wc-copy").addEventListener("click", function () {
+    if (!input.value) { ToolNest.showToast("Nothing to copy"); return; }
+    ToolNest.copyText(input.value, "Text copied");
+  });
+  update();
+})();
+</script>
+</body>
+</html>

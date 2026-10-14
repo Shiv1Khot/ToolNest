@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolNest — Free Online Tools: Text, Developer, Generators & Calculators</title>
+  <meta name="description" content="ToolNest is a free collection of handy online tools: word counter, JSON formatter, password generator, EMI calculator, QR code generator and more. No signup, everything runs in your browser.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-base="./">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="./"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories">
+      <a href="#text-tools">Text</a>
+      <a href="#developer-tools">Developer</a>
+      <a href="#generator-tools">Generators</a>
+      <a href="#calculator-tools">Calculators</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <span class="hide-sm">Search</span> <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>Everyday tools, <span class="grad">one tidy nest.</span></h1>
+      <p>Twelve free utilities for writers, developers and the merely curious — formatting text, checking JSON, generating passwords, planning loans and more. No accounts, no uploads, no nonsense.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-open-search>🔍 Find a tool</button>
+        <a class="btn btn-ghost" href="#all-tools">Browse all tools</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" id="all-tools">
+    <h2 class="section-title">All tools</h2>
+    <p class="section-sub">Pick a category or search — everything runs instantly in your browser.</p>
+    <div class="chips" role="tablist" aria-label="Filter by category">
+      <button class="chip active" data-cat="all">All</button>
+      <button class="chip" data-cat="text">📝 Text</button>
+      <button class="chip" data-cat="developer">💻 Developer</button>
+      <button class="chip" data-cat="generators">⚙️ Generators</button>
+      <button class="chip" data-cat="calculators">🧮 Calculators</button>
+    </div>
+
+    <section class="category-block" data-category="text" id="text-tools" aria-label="Text tools">
+      <h3><span class="emoji">📝</span> Text tools</h3>
+      <div class="tool-grid">
+        <a class="tool-card" data-category="text" href="tools/word-counter.html">
+          <span class="t-icon">🔤</span><span class="t-name">Word Counter</span>
+          <span class="t-desc">Live word, character, sentence and paragraph counts with reading time.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="text" href="tools/case-converter.html">
+          <span class="t-icon">🔠</span><span class="t-name">Case Converter</span>
+          <span class="t-desc">UPPER, lower, Title Case, Sentence case, aLtErNaTiNg and InVeRsE.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="text" href="tools/duplicate-line-remover.html">
+          <span class="t-icon">🧹</span><span class="t-name">Duplicate Line Remover</span>
+          <span class="t-desc">Remove duplicate lines, sort lines and trim whitespace in one click.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="category-block" data-category="developer" id="developer-tools" aria-label="Developer tools">
+      <h3><span class="emoji">💻</span> Developer tools</h3>
+      <div class="tool-grid">
+        <a class="tool-card" data-category="developer" href="tools/json-formatter.html">
+          <span class="t-icon">{ }</span><span class="t-name">JSON Formatter</span>
+          <span class="t-desc">Format, validate and minify JSON with clear, friendly error messages.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="developer" href="tools/base64-tool.html">
+          <span class="t-icon">🔐</span><span class="t-name">Base64 Encoder / Decoder</span>
+          <span class="t-desc">Encode text to Base64 or decode Base64 back to readable text.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="developer" href="tools/url-encoder.html">
+          <span class="t-icon">🔗</span><span class="t-name">URL Encoder / Decoder</span>
+          <span class="t-desc">Encode or decode full URLs and URI components without breaking them.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="category-block" data-category="generators" id="generator-tools" aria-label="Generator tools">
+      <h3><span class="emoji">⚙️</span> Generators</h3>
+      <div class="tool-grid">
+        <a class="tool-card" data-category="generators" href="tools/password-generator.html">
+          <span class="t-icon">🛡️</span><span class="t-name">Password Generator</span>
+          <span class="t-desc">Strong random passwords with length slider, character toggles and strength meter.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="generators" href="tools/uuid-generator.html">
+          <span class="t-icon">🆔</span><span class="t-name">UUID Generator</span>
+          <span class="t-desc">Generate UUID v4 identifiers — one at a time or in bulk.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="generators" href="tools/qr-code-generator.html">
+          <span class="t-icon">📷</span><span class="t-name">QR Code Generator</span>
+          <span class="t-desc">Turn text or URLs into QR codes and download them as PNG images.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="category-block" data-category="calculators" id="calculator-tools" aria-label="Calculator tools">
+      <h3><span class="emoji">🧮</span> Calculators</h3>
+      <div class="tool-grid">
+        <a class="tool-card" data-category="calculators" href="tools/emi-calculator.html">
+          <span class="t-icon">💰</span><span class="t-name">EMI Calculator</span>
+          <span class="t-desc">Monthly EMI, total interest and total payable for any loan.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="calculators" href="tools/age-calculator.html">
+          <span class="t-icon">🎂</span><span class="t-name">Age Calculator</span>
+          <span class="t-desc">Exact age in years, months and days — plus a countdown to your next birthday.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+        <a class="tool-card" data-category="calculators" href="tools/bmi-calculator.html">
+          <span class="t-icon">⚖️</span><span class="t-name">BMI Calculator</span>
+          <span class="t-desc">Body Mass Index from height and weight, with weight category.</span>
+          <span class="t-go">Open tool →</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-label="Why ToolNest">
+      <h2 class="section-title">Why ToolNest?</h2>
+      <p class="section-sub">Built to be the tab you keep pinned.</p>
+      <div class="features">
+        <div class="feature">
+          <span class="f-icon">🚫</span>
+          <h4>No signup, ever</h4>
+          <p>Every tool works the moment the page loads. No accounts, no email walls, no tracking you around the web.</p>
+        </div>
+        <div class="feature">
+          <span class="f-icon">💻</span>
+          <h4>Runs 100% in your browser</h4>
+          <p>Your text, passwords and numbers never leave your device. There is no server collecting what you paste.</p>
+        </div>
+        <div class="feature">
+          <span class="f-icon">🎁</span>
+          <h4>Free forever</h4>
+          <p>All twelve tools are free with no limits, no watermarks and no "pro" upsell hiding the good bits.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>ToolNest</strong> — twelve free tools, zero signup. Made for people who just want to get things done.</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="./">Home</a>
+      <a href="#text-tools">Text</a>
+      <a href="#developer-tools">Developer</a>
+      <a href="#generator-tools">Generators</a>
+      <a href="#calculator-tools">Calculators</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools… (e.g. json, password, emi)" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

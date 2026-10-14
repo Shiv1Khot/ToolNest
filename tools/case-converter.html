@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Converter — UPPER, lower, Title Case & More | ToolNest</title>
+  <meta name="description" content="Free case converter. Change text to UPPERCASE, lowercase, Title Case, Sentence case, aLtErNaTiNg and InVeRsE instantly in your browser.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories">
+      <a href="../#text-tools">Text</a>
+      <a href="../#developer-tools">Developer</a>
+      <a href="../#generator-tools">Generators</a>
+      <a href="../#calculator-tools">Calculators</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../">← All tools</a>
+  <div class="tool-head">
+    <h1>🔠 Case Converter</h1>
+    <p>Paste your text, pick a case style, and copy the result. Six styles, one click each.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="Case converter tool">
+    <div class="field">
+      <label for="cc-input">Your text</label>
+      <textarea id="cc-input" placeholder="Paste or type text here…"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost btn-sm" data-case="upper">UPPERCASE</button>
+      <button class="btn btn-ghost btn-sm" data-case="lower">lowercase</button>
+      <button class="btn btn-ghost btn-sm" data-case="title">Title Case</button>
+      <button class="btn btn-ghost btn-sm" data-case="sentence">Sentence case</button>
+      <button class="btn btn-ghost btn-sm" data-case="alternating">aLtErNaTiNg</button>
+      <button class="btn btn-ghost btn-sm" data-case="inverse">InVeRsE</button>
+    </div>
+    <div class="field">
+      <label for="cc-output">Converted result</label>
+      <textarea id="cc-output" readonly placeholder="Converted text will appear here…"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="cc-copy">📋 Copy result</button>
+      <button class="btn btn-ghost btn-sm" id="cc-clear">🗑 Clear</button>
+    </div>
+  </section>
+
+  <section class="howto">
+    <h2>How to use</h2>
+    <ol>
+      <li>Paste or type your text in the input box.</li>
+      <li>Click any case style — the result appears instantly below.</li>
+      <li>Hit <strong>Copy result</strong> to grab the converted text.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>FAQs</h2>
+    <details><summary>What is the difference between Title Case and Sentence case?</summary><p>Title Case capitalises the first letter of every word ("Hello World"). Sentence case capitalises only the first letter of each sentence ("Hello world. How are you?").</p></details>
+    <details><summary>Does it handle numbers and symbols?</summary><p>Yes — numbers, punctuation and symbols pass through unchanged. Only letters are affected by the conversion.</p></details>
+    <details><summary>Is there a character limit?</summary><p>No. The conversion runs entirely in your browser, so even very long documents convert instantly.</p></details>
+  </section>
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html"><span>Word Counter</span><span>→</span></a>
+      <a href="duplicate-line-remover.html"><span>Duplicate Line Remover</span><span>→</span></a>
+      <a href="url-encoder.html"><span>URL Encoder / Decoder</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>ToolNest</strong> — twelve free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#generator-tools">Generators</a><a href="../#calculator-tools">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("cc-input");
+  var output = document.getElementById("cc-output");
+  var converters = {
+    upper: function (s) { return s.toUpperCase(); },
+    lower: function (s) { return s.toLowerCase(); },
+    title: function (s) {
+      return s.toLowerCase().replace(/\w\S*/g, function (w) {
+        return w.charAt(0).toUpperCase() + w.slice(1);
+      });
+    },
+    sentence: function (s) {
+      return s.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, function (c) { return c.toUpperCase(); });
+    },
+    alternating: function (s) {
+      return Array.prototype.map.call(s, function (c, i) {
+        return i % 2 === 0 ? c.toUpperCase() : c.toLowerCase();
+      }).join("");
+    },
+    inverse: function (s) {
+      return Array.prototype.map.call(s, function (c) {
+        return c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase();
+      }).join("");
+    }
+  };
+  document.querySelectorAll("[data-case]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (!input.value) { ToolNest.showToast("Enter some text first"); return; }
+      output.value = converters[btn.getAttribute("data-case")](input.value);
+    });
+  });
+  document.getElementById("cc-copy").addEventListener("click", function () {
+    if (!output.value) { ToolNest.showToast("Nothing to copy yet"); return; }
+    ToolNest.copyText(output.value, "Converted text copied");
+  });
+  document.getElementById("cc-clear").addEventListener("click", function () {
+    input.value = ""; output.value = ""; input.focus();
+  });
+})();
+</script>
+</body>
+</html>
