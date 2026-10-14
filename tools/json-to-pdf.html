@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00760">JSON to PDF — Pretty-Print JSON Into a PDF | ToolNest</title>
+  <meta name="description" content="Free online JSON to PDF converter. Validate your JSON and export it as a nicely formatted, printable PDF — entirely in your browser." data-i18n-content="k00761">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00762">📄 JSON to PDF</h1>
+    <p data-i18n="k00763">Validate your JSON and export it as a nicely formatted PDF.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="JSON to PDF tool" data-i18n-aria="k00764">
+    <div class="field">
+      <label for="jp-text" data-i18n-html="k00765">Your JSON <span class="hint">— paste it below; it gets checked before converting</span></label>
+      <textarea id="jp-text" style="min-height: 170px"></textarea>
+    </div>
+    <div id="jp-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="jp-go" data-i18n="k00766">Validate &amp; Convert</button>
+    </div>
+    <div class="field">
+      <label data-i18n="k00331">Result</label>
+      <div class="output" id="jp-out"></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00754">Paste your JSON into the box above.</li>
+      <li data-i18n-html="k00767">Click <strong>Validate &amp; Convert</strong> — syntax errors are flagged with a plain-English hint.</li>
+      <li data-i18n-html="k00768">If it's valid, a pretty-printed <em>data.pdf</em> downloads automatically.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00769">What does "pretty-printed" mean?</summary><p data-i18n="k00770">The JSON is reformatted with 2-space indentation and line breaks before going into the PDF, so nested objects and arrays are easy to read instead of one giant line.</p></details>
+    <details><summary data-i18n="k00771">My JSON failed validation — what now?</summary><p data-i18n="k00772">The error message names the problem (often a missing comma or an extra trailing comma). Fix that spot and convert again — the tool won't produce a PDF from invalid JSON.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00773">No. This tool runs entirely in your browser — your JSON is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="txt-to-pdf.html"><span data-i18n="k00126">Text to PDF</span><span>→</span></a>
+      <a href="csv-to-pdf.html"><span data-i18n="k00124">CSV to PDF</span><span>→</span></a>
+      <a href="json-to-table-viewer.html"><span data-i18n="k00600">JSON to Table Viewer</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var alertEl = document.getElementById("jp-alert");
+  var outEl = document.getElementById("jp-out");
+  var textEl = document.getElementById("jp-text");
+
+  function showErr(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function showOk(msg) {
+    alertEl.innerHTML = '<div class="alert alert-success">' + ToolNest.escapeHtml(msg) + "</div>";
+  }
+  function clearAlert() { alertEl.innerHTML = ""; }
+
+  async function textToPdf(lines) {
+    var PDFDocument = PDFLib.PDFDocument, StandardFonts = PDFLib.StandardFonts, rgb = PDFLib.rgb;
+    var pdf = await PDFDocument.create();
+    var font = await pdf.embedFont(StandardFonts.Helvetica);
+    var fontSize = 11, lineH = 15, margin = 50;
+    var page = pdf.addPage();
+    var y = page.getHeight() - margin;
+    var maxW = page.getWidth() - margin * 2;
+    function wrapped(text) {
+      var words = String(text).split(/\s+/);
+      var out = [], line = "";
+      for (var k = 0; k < words.length; k++) {
+        var w = words[k];
+        var t = line ? line + " " + w : w;
+        if (font.widthOfTextAtSize(t, fontSize) > maxW) { if (line) out.push(line); line = w; }
+        else line = t;
+      }
+      if (line) out.push(line);
+      return out.length ? out : [""];
+    }
+    for (var i = 0; i < lines.length; i++) {
+      var wl = wrapped(lines[i]);
+      for (var j = 0; j < wl.length; j++) {
+        if (y < margin + lineH) { page = pdf.addPage(); y = page.getHeight() - margin; }
+        page.drawText(wl[j], { x: margin, y: y, size: fontSize, font: font, color: rgb(0.1, 0.1, 0.1) });
+        y -= lineH;
+      }
+    }
+    return await pdf.save();
+  }
+
+  document.getElementById("jp-go").addEventListener("click", function () {
+    clearAlert();
+    var raw = textEl.value;
+    if (!raw.trim()) {
+      showErr(I18N.t("j0214"));
+      return;
+    }
+    var obj;
+    try {
+      obj = JSON.parse(raw);
+    } catch (e) {
+      showErr(I18N.t("j0013") + " " + (e && e.message ? e.message : I18N.t("j1310")));
+      return;
+    }
+    ToolNest.loadScriptOrAlert(ToolNest.CDN.pdfLib, alertEl,
+      I18N.t("j0019")
+    ).then(function (ok) {
+      if (!ok) return;
+      var lines = JSON.stringify(obj, null, 2).split("\n");
+      return textToPdf(lines).then(function (bytes) {
+        ToolNest.downloadBlob(new Blob([bytes], { type: "application/pdf" }), "data.pdf");
+        var keys = (obj && typeof obj === "object") ? Object.keys(obj).length : 0;
+        outEl.innerHTML =
+          '<div class="stat-grid">' +
+          '<div class="stat"><div class="v">✓</div><div class="l">' + I18N.t("j1306") + '</div></div>' +
+          '<div class="stat"><div class="v">' + lines.length + '</div><div class="l">' + I18N.t("j1307") + '</div></div>' +
+          '<div class="stat"><div class="v">' + keys + '</div><div class="l">' + I18N.t("j1308") + '</div></div>' +
+          '<div class="stat"><div class="v">' + ToolNest.formatBytes(bytes.length) + '</div><div class="l">' + I18N.t("j1309") + '</div></div>' +
+          "</div>";
+        showOk(I18N.t("j0224"));
+      });
+    }).catch(function (err) {
+      showErr(I18N.t("j1311") + " " + (err && err.message ? err.message : I18N.t("j0029")));
+    });
+  });
+})();
+</script>
+</body>
+</html>

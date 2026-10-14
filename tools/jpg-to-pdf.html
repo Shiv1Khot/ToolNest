@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00681">JPG to PDF — Combine JPG Images Into a PDF | ToolNest</title>
+  <meta name="description" content="Turn one or many JPG or PNG images into a single PDF, each on its own page. Free, private, and runs entirely in your browser." data-i18n-content="k00682">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00683">📄 JPG to PDF</h1>
+    <p data-i18n="k00684">Turn one or many JPG/PNG images into a single PDF, each on its own page.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="JPG to PDF tool" data-i18n-aria="k00685">
+    <div id="jtp-drop"></div>
+    <div id="jtp-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="jtp-go" data-i18n="k00330">Convert to PDF</button>
+    </div>
+    <div class="field">
+      <label data-i18n="k00331">Result</label>
+      <div class="output" id="jtp-output"></div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00686">Drop one or more JPG or PNG images into the box above (they're used in the order you select them).</li>
+      <li data-i18n-html="k00687">Press <strong>Convert to PDF</strong> — each image lands on its own full-size page.</li>
+      <li data-i18n-html="k00688">Your combined <code>images.pdf</code> downloads instantly.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00689">Can I mix JPG and PNG files?</summary><p data-i18n="k00690">Yes — both formats are supported in the same run, one image per PDF page.</p></details>
+    <details><summary data-i18n="k00691">How is the page size decided?</summary><p data-i18n="k00692">Each PDF page matches its image's pixel dimensions, so nothing is cropped or stretched.</p></details>
+    <details><summary data-i18n="k00693">Is there a limit on the number of images?</summary><p data-i18n="k00694">No hard limit, but very large batches use more memory. If your browser slows down, try converting in smaller groups.</p></details>
+    <details><summary data-i18n="k00301">Is my file uploaded anywhere?</summary><p data-i18n="k00695">No. This tool runs entirely in your browser — your files are never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="heic-to-pdf.html"><span data-i18n="k00093">HEIC to PDF</span><span>→</span></a>
+      <a href="png-to-jpg.html"><span data-i18n="k00079">PNG to JPG</span><span>→</span></a>
+      <a href="pdf-to-jpg.html"><span data-i18n="k00109">PDF to JPG</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.ToolNest;
+  var alertEl = document.getElementById("jtp-alert");
+  var outputEl = document.getElementById("jtp-output");
+  var goBtn = document.getElementById("jtp-go");
+
+  var files = [];
+
+  function showError(msg) {
+    alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
+  }
+  function clearAlerts() { alertEl.innerHTML = ""; }
+
+  T.renderDropzone(document.getElementById("jtp-drop"), {
+    accept: "image/jpeg,image/png,.jpg,.jpeg,.png",
+    multiple: true,
+    labelKey: "j0120",
+    onFiles: function (list) {
+      clearAlerts();
+      files = (list || []).filter(function (f) {
+        return f.type === "image/jpeg" || f.type === "image/png" || /\.(jpe?g|png)$/i.test(f.name);
+      });
+      if (files.length !== (list || []).length) {
+        showError(I18N.t("j0154"));
+      }
+      outputEl.innerHTML = files.length
+        ? I18N.t("j1212", { n: "<strong>" + files.length + "</strong>" })
+        : "";
+    }
+  });
+
+  goBtn.addEventListener("click", function () {
+    clearAlerts();
+    if (!files.length) { showError(I18N.t("j0165")); return; }
+    goBtn.disabled = true;
+    outputEl.textContent = I18N.t("j0085");
+    T.loadScriptOrAlert(T.CDN.pdfLib, alertEl, I18N.t("j0019"))
+      .then(function (ok) {
+        if (!ok) return null;
+        var pdfPromise = PDFLib.PDFDocument.create();
+        var chain = Promise.resolve(pdfPromise);
+        files.forEach(function (file) {
+          chain = chain.then(function (pdf) {
+            return T.readAsArrayBuffer(file).then(function (bytes) {
+              var embed;
+              if (file.type.indexOf("png") !== -1) {
+                embed = pdf.embedPng(bytes);
+              } else {
+                embed = pdf.embedJpg(bytes).catch(function () { return pdf.embedPng(bytes); });
+              }
+              return embed.then(function (img) {
+                var page = pdf.addPage([img.width, img.height]);
+                page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+                return pdf;
+              });
+            });
+          });
+        });
+        return chain;
+      })
+      .then(function (pdf) {
+        if (!pdf) return;
+        return pdf.save().then(function (bytes) {
+          T.downloadBlob(new Blob([bytes], { type: "application/pdf" }), "images.pdf");
+          outputEl.innerHTML = I18N.t("j1213", { pdf: "<strong>images.pdf</strong>", n: files.length });
+        });
+      })
+      .catch(function (err) {
+        outputEl.innerHTML = "";
+        showError(err && err.message ? err.message : I18N.t("j0092"));
+      })
+      .finally(function () { goBtn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00774">JSON to SQL — Generate CREATE TABLE and INSERTs | ToolNest</title>
+  <meta name="description" content="Free JSON to SQL generator. Turn a JSON array into CREATE TABLE and INSERT statements in your browser. No signup, no uploads." data-i18n-content="k00775">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00776">🗄️ JSON to SQL</h1>
+    <p data-i18n="k00777">Turn a JSON array into CREATE TABLE and INSERT statements.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="JSON to SQL tool" data-i18n-aria="k00778">
+    <div class="field">
+      <label for="jtsql-input" data-i18n="k00715">JSON input</label>
+      <textarea id="jtsql-input" style="min-height:170px" placeholder="[{"name": "Ada", "age": 36}, {"name": "Alan", "age": 41}]" data-i18n-ph="k00736"></textarea>
+      <p class="hint" data-i18n="k00779">Paste a JSON array or a single object.</p>
+    </div>
+    <div class="field">
+      <label for="jtsql-table" data-i18n="k00780">Table name</label>
+      <input type="text" id="jtsql-table" value="records" style="max-width:280px">
+    </div>
+    <div id="jtsql-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="jtsql-go" data-i18n="k00781">🔄 Generate SQL</button>
+      <button class="btn btn-ghost btn-sm" id="jtsql-dl" style="display:none" data-i18n="k00782">⬇ Download .sql</button>
+      <button class="btn btn-ghost btn-sm" id="jtsql-copy" style="display:none" data-i18n="k00417">📋 Copy</button>
+    </div>
+    <div class="field" id="jtsql-out-field" style="display:none">
+      <label for="jtsql-output" data-i18n="k00331">Result</label>
+      <textarea id="jtsql-output" readonly style="min-height:220px"></textarea>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00783">Paste your JSON into the box above and set a table name.</li>
+      <li data-i18n-html="k00784">Click <strong>Generate SQL</strong>.</li>
+      <li data-i18n="k00785">Copy the script or download it, then run it in your database.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00786">How are column types chosen?</summary><p data-i18n="k00787">The generator looks at every value: all-integer columns become INTEGER, other numbers become REAL, and everything else becomes TEXT.</p></details>
+    <details><summary data-i18n="k00788">Will this run on any database?</summary><p data-i18n="k00789">The output uses standard SQL (CREATE TABLE + INSERT) that works in SQLite, PostgreSQL, MySQL and most other databases. True/false values are written as TRUE/FALSE keywords.</p></details>
+    <details><summary data-i18n="k00746">Is my data uploaded anywhere?</summary><p data-i18n="k00790">No. Generation happens entirely in your browser — your data is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="sql-to-json.html"><span data-i18n="k00163">SQL to JSON</span><span>→</span></a>
+      <a href="json-to-csv.html"><span data-i18n="k00150">JSON to CSV</span><span>→</span></a>
+      <a href="json-to-excel.html"><span data-i18n="k00152">JSON to Excel</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("jtsql-input");
+  var tableInput = document.getElementById("jtsql-table");
+  var alertBox = document.getElementById("jtsql-alert");
+  var outField = document.getElementById("jtsql-out-field");
+  var output = document.getElementById("jtsql-output");
+  var dlBtn = document.getElementById("jtsql-dl");
+  var copyBtn = document.getElementById("jtsql-copy");
+  var sqlText = "";
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  // One-level-deep dot flattening; nested arrays become JSON text.
+  function flatten(obj, prefix) {
+    var out = {};
+    prefix = prefix || "";
+    Object.keys(obj).forEach(function (k) {
+      var v = obj[k];
+      var key = prefix ? prefix + "." + k : k;
+      if (v !== null && typeof v === "object" && !Array.isArray(v)) {
+        var sub = flatten(v, key);
+        Object.keys(sub).forEach(function (sk) { out[sk] = sub[sk]; });
+      } else if (Array.isArray(v)) {
+        out[key] = JSON.stringify(v);
+      } else {
+        out[key] = v;
+      }
+    });
+    return out;
+  }
+
+  function quoteIdent(s) {
+    return '"' + String(s).replace(/"/g, '""') + '"';
+  }
+
+  function sqlLiteral(v) {
+    if (v === null || v === undefined) return "NULL";
+    if (typeof v === "number") return String(v);
+    if (typeof v === "boolean") return v ? "TRUE" : "FALSE";
+    return "'" + String(v).replace(/'/g, "''") + "'";
+  }
+
+  // columns = union of keys; every non-null int → INTEGER, every number → REAL, else TEXT
+  function jsonToSql(rows, table) {
+    table = (table || "records").replace(/[^A-Za-z0-9_]/g, "") || "records";
+    var cols = [];
+    rows.forEach(function (r) {
+      Object.keys(r).forEach(function (k) { if (cols.indexOf(k) === -1) cols.push(k); });
+    });
+    function colType(col) {
+      var vals = rows.map(function (r) { return r[col]; }).filter(function (v) {
+        return v !== null && v !== undefined && v !== "";
+      });
+      if (!vals.length) return "TEXT";
+      if (vals.every(function (v) { return Number.isInteger(v); })) return "INTEGER";
+      if (vals.every(function (v) { return typeof v === "number"; })) return "REAL";
+      return "TEXT";
+    }
+    var create = "CREATE TABLE " + quoteIdent(table) + " (\n" +
+      cols.map(function (c) { return "  " + quoteIdent(c) + " " + colType(c); }).join(",\n") +
+      "\n);";
+    var insert = "INSERT INTO " + quoteIdent(table) + " (" + cols.map(quoteIdent).join(", ") + ") VALUES\n" +
+      rows.map(function (r) {
+        return "  (" + cols.map(function (c) { return sqlLiteral(r[c]); }).join(", ") + ")";
+      }).join(",\n") + ";";
+    return create + "\n\n" + insert;
+  }
+
+  document.getElementById("jtsql-go").addEventListener("click", function () {
+    var raw = input.value.trim();
+    if (!raw) { showAlert("error", I18N.t("j0010")); return; }
+    var parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (e) {
+      showAlert("error", I18N.t("j0013") + " " + e.message);
+      return;
+    }
+    var items = Array.isArray(parsed) ? parsed : [parsed];
+    if (!items.length) { showAlert("error", I18N.t("j0060")); return; }
+    var flat = items.map(function (item) {
+      return (item !== null && typeof item === "object") ? flatten(item) : { value: item };
+    });
+    try {
+      sqlText = jsonToSql(flat, tableInput.value.trim());
+    } catch (e) {
+      showAlert("error", I18N.t("j1305"));
+      return;
+    }
+    output.value = sqlText;
+    outField.style.display = "";
+    dlBtn.style.display = "";
+    copyBtn.style.display = "";
+    showAlert("success", I18N.t("j1303", { n: flat.length }));
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!sqlText) return;
+    var name = ((tableInput.value.trim().replace(/[^A-Za-z0-9_]/g, "") || "records")) + ".sql";
+    ToolNest.downloadText(sqlText, name, "text/plain;charset=utf-8");
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (!sqlText) { ToolNest.showToast(I18N.t("j0002")); return; }
+    ToolNest.copyText(sqlText, I18N.t("j1304"));
+  });
+})();
+</script>
+</body>
+</html>

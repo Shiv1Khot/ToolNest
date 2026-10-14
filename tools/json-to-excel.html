@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="k00748">JSON to Excel — Convert JSON to XLSX | ToolNest</title>
+  <meta name="description" content="Free JSON to Excel converter. Turn JSON data into a formatted Excel workbook in your browser. No signup, no uploads." data-i18n-content="k00749">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-base="../">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+    </nav>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container tool-page">
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <div class="tool-head">
+    <h1 data-i18n="k00750">📊 JSON to Excel</h1>
+    <p data-i18n="k00751">Convert JSON data into a formatted Excel workbook.</p>
+  </div>
+
+  <section class="tool-ui" aria-label="JSON to Excel tool" data-i18n-aria="k00752">
+    <div class="field">
+      <label for="jtx-input" data-i18n="k00715">JSON input</label>
+      <textarea id="jtx-input" style="min-height:170px" placeholder="[{"name": "Ada", "age": 36}, {"name": "Alan", "age": 41}]" data-i18n-ph="k00736"></textarea>
+      <p class="hint" data-i18n="k00753">Paste a JSON array or a single object. Nested objects are flattened with dot-separated names.</p>
+    </div>
+    <div id="jtx-alert"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="jtx-go" data-i18n="k00314">🔄 Convert to Excel</button>
+    </div>
+    <div id="jtx-stats" style="display:none">
+      <div class="stat-grid">
+        <div class="stat"><div class="v" id="jtx-rows">–</div><div class="l" data-i18n="k00738">Data rows</div></div>
+        <div class="stat"><div class="v" id="jtx-cols">–</div><div class="l" data-i18n="k00316">Columns</div></div>
+      </div>
+    </div>
+    <div class="privacy-note">🔒 <span data-i18n-html="k00293"><strong>Files never leave your browser.</strong> Everything is processed locally on your device.</span></div>
+  </section>
+
+  <section class="howto">
+    <h2 data-i18n="k00199">How to use</h2>
+    <ol>
+      <li data-i18n="k00754">Paste your JSON into the box above.</li>
+      <li data-i18n-html="k00755">Click <strong>Convert to Excel</strong>.</li>
+      <li data-i18n="k00756">Your .xlsx workbook downloads straight away — open it in Excel, Sheets or LibreOffice.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00742">What happens to nested objects?</summary><p data-i18n-html="k00757">They're flattened one level deep using dot notation — <em>{"address": {"city": "Pune"}}</em> becomes an <em>address.city</em> column. Nested arrays are stored as JSON text in their cell.</p></details>
+    <details><summary data-i18n="k00758">Are numbers kept as numbers?</summary><p data-i18n="k00759">Yes. Numeric values are written as real Excel numbers so formulas and sorting work on them.</p></details>
+    <details><summary data-i18n="k00746">Is my data uploaded anywhere?</summary><p data-i18n="k00747">No. Conversion happens entirely in your browser — your data is never sent to any server.</p></details>
+  </section>
+
+  <section class="related">
+    <h2 data-i18n="k00210">Related tools</h2>
+    <div class="related-grid">
+      <a href="json-to-csv.html"><span data-i18n="k00150">JSON to CSV</span><span>→</span></a>
+      <a href="excel-to-json.html"><span data-i18n="k00146">Excel to JSON</span><span>→</span></a>
+      <a href="csv-to-excel.html"><span data-i18n="k00144">CSV to Excel</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+  </div>
+</footer>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
+<script src="../assets/js/file-tools.js"></script>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("jtx-input");
+  var alertBox = document.getElementById("jtx-alert");
+  var stats = document.getElementById("jtx-stats");
+
+  function showAlert(kind, msg) {
+    alertBox.innerHTML = msg ? '<div class="alert alert-' + kind + '">' + ToolNest.escapeHtml(msg) + "</div>" : "";
+  }
+
+  // One-level-deep dot flattening; nested arrays become JSON text.
+  function flatten(obj, prefix) {
+    var out = {};
+    prefix = prefix || "";
+    Object.keys(obj).forEach(function (k) {
+      var v = obj[k];
+      var key = prefix ? prefix + "." + k : k;
+      if (v !== null && typeof v === "object" && !Array.isArray(v)) {
+        var sub = flatten(v, key);
+        Object.keys(sub).forEach(function (sk) { out[sk] = sub[sk]; });
+      } else if (Array.isArray(v)) {
+        out[key] = JSON.stringify(v);
+      } else {
+        out[key] = v;
+      }
+    });
+    return out;
+  }
+
+  document.getElementById("jtx-go").addEventListener("click", function () {
+    var raw = input.value.trim();
+    if (!raw) { showAlert("error", I18N.t("j0010")); return; }
+    var parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (e) {
+      showAlert("error", I18N.t("j0013") + " " + e.message);
+      return;
+    }
+    var items = Array.isArray(parsed) ? parsed : [parsed];
+    if (!items.length) { showAlert("error", I18N.t("j0060")); return; }
+    var flat = items.map(function (item) {
+      return (item !== null && typeof item === "object") ? flatten(item) : { value: item };
+    });
+    ToolNest.loadScriptOrAlert(ToolNest.CDN.xlsx, alertBox, I18N.t("j0020")).then(function (ok) {
+      if (!ok) return;
+      try {
+        var ws = XLSX.utils.json_to_sheet(flat);
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        var out = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+        ToolNest.downloadBlob(new Blob([out], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }), "data.xlsx");
+        var cols = XLSX.utils.sheet_to_json(ws, { header: 1 })[0] || [];
+        document.getElementById("jtx-rows").textContent = flat.length;
+        document.getElementById("jtx-cols").textContent = cols.length;
+        stats.style.display = "";
+        showAlert("success", I18N.t("j1302", { n: flat.length }));
+      } catch (e) {
+        showAlert("error", I18N.t("j0054"));
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

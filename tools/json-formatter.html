@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON Formatter — Format, Validate & Minify JSON | ToolNest</title>
-  <meta name="description" content="Free JSON formatter and validator. Pretty-print, minify and validate JSON with clear error messages. Runs entirely in your browser.">
+  <title data-i18n="k00710">JSON Formatter — Format, Validate & Minify JSON | ToolNest</title>
+  <meta name="description" content="Free JSON formatter and validator. Pretty-print, minify and validate JSON with clear error messages. Runs entirely in your browser." data-i18n-content="k00711">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -13,88 +13,88 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
-    <nav class="main-nav" aria-label="Categories">
-      <a href="../#text-tools">Text</a>
-      <a href="../#developer-tools">Developer</a>
-      <a href="../#generator-tools">Generators</a>
-      <a href="../#calculator-tools">Calculators</a>
+    <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
+      <a href="../#text-tools" data-i18n="k00004">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
     </nav>
-    <div class="header-actions">
-      <button class="icon-btn" data-open-search aria-label="Search tools">🔍 <kbd>⌘K</kbd></button>
-      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    <div class="header-actions"><button class="icon-btn lang-toggle" data-lang-toggle aria-label="Switch language" data-i18n-aria="lang_toggle_aria"><span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">|</span><span class="lang-opt" data-lang-opt="hi">हिं</span></button>
+      <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria="k00010"><span class="theme-icon">🌙</span></button>
     </div>
   </div>
 </header>
 
 <main class="container tool-page">
-  <a class="breadcrumb" href="../">← All tools</a>
+  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
   <div class="tool-head">
-    <h1>{ } JSON Formatter</h1>
-    <p>Paste JSON to pretty-print it, minify it, or find out exactly why it won't parse.</p>
+    <h1 data-i18n="k00712">{ } JSON Formatter</h1>
+    <p data-i18n="k00713">Paste JSON to pretty-print it, minify it, or find out exactly why it won't parse.</p>
   </div>
 
-  <section class="tool-ui" aria-label="JSON formatter tool">
+  <section class="tool-ui" aria-label="JSON formatter tool" data-i18n-aria="k00714">
     <div class="field">
-      <label for="jf-input">JSON input</label>
-      <textarea id="jf-input" placeholder='{"name": "ToolNest", "tools": 12}' style="min-height:170px"></textarea>
+      <label for="jf-input" data-i18n="k00715">JSON input</label>
+      <textarea id="jf-input" placeholder="{"name": "ToolNest", "tools": 12}" style="min-height:170px" data-i18n-ph="k00716"></textarea>
     </div>
     <div id="jf-alert"></div>
     <div class="btn-row">
-      <button class="btn btn-primary btn-sm" id="jf-format">✨ Format</button>
-      <button class="btn btn-ghost btn-sm" id="jf-minify">🗜 Minify</button>
-      <button class="btn btn-ghost btn-sm" id="jf-validate">✔ Validate</button>
-      <button class="btn btn-ghost btn-sm" id="jf-copy">📋 Copy</button>
-      <button class="btn btn-ghost btn-sm" id="jf-clear">🗑 Clear</button>
+      <button class="btn btn-primary btn-sm" id="jf-format" data-i18n="k00717">✨ Format</button>
+      <button class="btn btn-ghost btn-sm" id="jf-minify" data-i18n="k00718">🗜 Minify</button>
+      <button class="btn btn-ghost btn-sm" id="jf-validate" data-i18n="k00719">✔ Validate</button>
+      <button class="btn btn-ghost btn-sm" id="jf-copy" data-i18n="k00417">📋 Copy</button>
+      <button class="btn btn-ghost btn-sm" id="jf-clear" data-i18n="k00223">🗑 Clear</button>
     </div>
     <div class="field">
-      <label for="jf-output">Result</label>
-      <textarea id="jf-output" readonly placeholder="Formatted JSON will appear here…"></textarea>
+      <label for="jf-output" data-i18n="k00331">Result</label>
+      <textarea id="jf-output" readonly placeholder="Formatted JSON will appear here…" data-i18n-ph="k00720"></textarea>
     </div>
   </section>
 
   <section class="howto">
-    <h2>How to use</h2>
+    <h2 data-i18n="k00199">How to use</h2>
     <ol>
-      <li>Paste your JSON into the input box.</li>
-      <li>Click <strong>Format</strong> to pretty-print, <strong>Minify</strong> to compress, or <strong>Validate</strong> to check it.</li>
-      <li>If something is wrong, you'll get a plain-English error message pointing at the problem.</li>
-      <li>Copy the result with one click.</li>
+      <li data-i18n="k00721">Paste your JSON into the input box.</li>
+      <li data-i18n-html="k00722">Click <strong>Format</strong> to pretty-print, <strong>Minify</strong> to compress, or <strong>Validate</strong> to check it.</li>
+      <li data-i18n="k00723">If something is wrong, you'll get a plain-English error message pointing at the problem.</li>
+      <li data-i18n="k00724">Copy the result with one click.</li>
     </ol>
   </section>
 
   <section class="faq">
-    <h2>FAQs</h2>
-    <details><summary>What does "minify" mean?</summary><p>Minifying strips all unnecessary whitespace from JSON, making it as compact as possible — useful for sending data over the network or storing it.</p></details>
-    <details><summary>My JSON has trailing commas — will it work?</summary><p>No, and that's on purpose: trailing commas are not valid JSON. The validator will tell you exactly where the problem is so you can fix it.</p></details>
-    <details><summary>Is my data sent to a server?</summary><p>Never. Parsing and formatting happen locally in your browser, so even sensitive payloads stay on your machine.</p></details>
+    <h2 data-i18n="k00203">FAQs</h2>
+    <details><summary data-i18n="k00725">What does "minify" mean?</summary><p data-i18n="k00726">Minifying strips all unnecessary whitespace from JSON, making it as compact as possible — useful for sending data over the network or storing it.</p></details>
+    <details><summary data-i18n="k00727">My JSON has trailing commas — will it work?</summary><p data-i18n="k00728">No, and that's on purpose: trailing commas are not valid JSON. The validator will tell you exactly where the problem is so you can fix it.</p></details>
+    <details><summary data-i18n="k00729">Is my data sent to a server?</summary><p data-i18n="k00730">Never. Parsing and formatting happen locally in your browser, so even sensitive payloads stay on your machine.</p></details>
   </section>
 
   <section class="related">
-    <h2>Related tools</h2>
+    <h2 data-i18n="k00210">Related tools</h2>
     <div class="related-grid">
-      <a href="base64-tool.html"><span>Base64 Encoder / Decoder</span><span>→</span></a>
-      <a href="url-encoder.html"><span>URL Encoder / Decoder</span><span>→</span></a>
-      <a href="uuid-generator.html"><span>UUID Generator</span><span>→</span></a>
+      <a href="base64-tool.html"><span data-i18n="k00042">Base64 Encoder / Decoder</span><span>→</span></a>
+      <a href="url-encoder.html"><span data-i18n="k00044">URL Encoder / Decoder</span><span>→</span></a>
+      <a href="uuid-generator.html"><span data-i18n="k00051">UUID Generator</span><span>→</span></a>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div><strong>ToolNest</strong> — twelve free tools, zero signup.</div>
-    <nav class="footer-links" aria-label="Footer"><a href="../">Home</a><a href="../#text-tools">Text</a><a href="../#developer-tools">Developer</a><a href="../#generator-tools">Generators</a><a href="../#calculator-tools">Calculators</a></nav>
+    <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#generator-tools" data-i18n="k00006">Generators</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
   </div>
 </footer>
 
-<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools">
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search tools" data-i18n-aria="k00008">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off">
+    <input type="text" id="search-input" placeholder="Search tools…" autocomplete="off" data-i18n-ph="k00212">
     <div class="search-results" id="search-results"></div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/i18n-core.js"></script><script src="../assets/js/i18n-dict-1.js"></script><script src="../assets/js/i18n-dict-2.js"></script><script src="../assets/js/i18n-dict-3.js"></script><script src="../assets/js/i18n-dict-4.js"></script><script src="../assets/js/i18n-dict-5.js"></script><script src="../assets/js/i18n-dict-6.js"></script><script src="../assets/js/i18n-dict-7.js"></script><script src="../assets/js/i18n-dict-8.js"></script><script src="../assets/js/main.js"></script>
 <script>
 (function () {
   "use strict";
@@ -106,13 +106,13 @@
   }
   function parse() {
     var raw = input.value.trim();
-    if (!raw) { showAlert("error", "Please paste some JSON first."); return null; }
+    if (!raw) { showAlert("error", I18N.t("j0010")); return null; }
     try {
       var obj = JSON.parse(raw);
-      showAlert("success", "Valid JSON ✔");
+      showAlert("success", I18N.t("j0225"));
       return obj;
     } catch (e) {
-      showAlert("error", "Invalid JSON: " + e.message);
+      showAlert("error", I18N.t("j0136") + " " + e.message);
       output.value = "";
       return undefined;
     }
@@ -127,8 +127,8 @@
   });
   document.getElementById("jf-validate").addEventListener("click", function () { parse(); });
   document.getElementById("jf-copy").addEventListener("click", function () {
-    if (!output.value) { ToolNest.showToast("Nothing to copy yet"); return; }
-    ToolNest.copyText(output.value, "JSON copied");
+    if (!output.value) { ToolNest.showToast(I18N.t("j0002")); return; }
+    ToolNest.copyText(output.value, I18N.t("j0005"));
   });
   document.getElementById("jf-clear").addEventListener("click", function () {
     input.value = ""; output.value = ""; showAlert("", ""); input.focus();
