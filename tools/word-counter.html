@@ -12,17 +12,34 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
 <script defer src="/_vercel/insights/script.js"></script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNest">
+<meta property="og:title" content="Word Counter — Count Words, Characters &amp; Reading Time | ToolNest">
+<meta property="og:description" content="Free online word counter. Count words, characters, sentences and paragraphs as you type, with estimated reading time. No signup, runs in your browser.">
+<meta property="og:url" content="https://toolnest-three-zeta.vercel.app/tools/word-counter.html">
+<meta property="og:image" content="https://toolnest-three-zeta.vercel.app/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Word Counter — Count Words, Characters &amp; Reading Time | ToolNest">
+<meta name="twitter:description" content="Free online word counter. Count words, characters, sentences and paragraphs as you type, with estimated reading time. No signup, runs in your browser.">
+<meta name="twitter:image" content="https://toolnest-three-zeta.vercel.app/assets/img/og-cover.png">
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How are words counted?", "acceptedAnswer": {"@type": "Answer", "text": "Text is split on whitespace, so hyphenated compounds like \"well-known\" count as one word and numbers count as words too — the same convention most editors use."}}, {"@type": "Question", "name": "Is my text uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Counting happens entirely in your browser with JavaScript. Nothing you type or paste ever leaves your device."}}, {"@type": "Question", "name": "How is reading time estimated?", "acceptedAnswer": {"@type": "Answer", "text": "Reading time assumes 200 words per minute and speaking time 130 words per minute — widely used averages for English text."}}]}
+</script>
 </head>
 <body data-base="../">
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="../"><span class="logo-mark">T</span>ToolNest</a>
+    <a class="logo" href="../" title="ToolNest - Home"><span class="logo-mark">T</span>ToolNest</a>
     <nav class="main-nav" aria-label="Categories" data-i18n-aria="k00003">
-      <a href="../#text-tools" data-i18n="k00004">Text</a>
-      <a href="../#developer-tools" data-i18n="k00005">Developer</a>
-      <a href="../#generator-tools" data-i18n="k00006">Generators</a>
-      <a href="../#calculator-tools" data-i18n="k00007">Calculators</a>
+      <a href="../#text-tools" data-i18n="k00004" title="Text">Text</a>
+      <a href="../#developer-tools" data-i18n="k00005" title="Developer">Developer</a>
+      <a href="../#generator-tools" data-i18n="k00006" title="Generators">Generators</a>
+      <a href="../#calculator-tools" data-i18n="k00007" title="Calculators">Calculators</a>
     </nav>
     <div class="header-actions"><div class="lang-picker" data-lang-picker><button class="icon-btn lang-btn" data-lang-btn aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language" data-i18n-aria="lang_picker_aria"><span aria-hidden="true">🌐</span><span data-lang-current>English</span><span class="lang-caret" aria-hidden="true">▾</span></button><div class="lang-menu" data-lang-menu hidden><input class="lang-search" data-lang-search type="search" placeholder="Search languages…" data-i18n-ph="lang_search_ph" data-i18n-aria="lang_search_ph"><ul class="lang-list" data-lang-list role="listbox"></ul></div></div>
       <button class="icon-btn" data-open-search aria-label="Search tools" data-i18n-aria="k00008">🔍 <kbd>⌘K</kbd></button>
@@ -32,7 +49,7 @@
 </header>
 
 <main class="container tool-page">
-  <a class="breadcrumb" href="../" data-i18n="k00188">← All tools</a>
+  <a class="breadcrumb" href="../" data-i18n="k00188" title="← All tools">← All tools</a>
   <div class="tool-head">
     <h1 data-i18n="k01157">🔤 Word Counter</h1>
     <p data-i18n="k01158">Paste or type your text below — words, characters, sentences and reading time update instantly.</p>
@@ -56,7 +73,39 @@
     <p style="color:var(--muted);font-size:.9rem;margin:0"><span data-i18n="k01166">Estimated reading time: </span><strong id="st-read" data-i18n="k01168">0 min</strong><span data-i18n="k01167"> · speaking time: </span><strong id="st-speak" data-i18n="k01168">0 min</strong></p>
   </section>
 
-  <section class="howto">
+  
+<div class="share-row" style="display:flex;gap:.5rem;align-items:center;margin:1rem 0;flex-wrap:wrap;">
+  <span style="font-size:.88rem;color:var(--muted);font-weight:600;">Share this tool:</span>
+  <button class="btn btn-ghost btn-sm" data-share="x" type="button">𝕏 Post</button>
+  <button class="btn btn-ghost btn-sm" data-share="whatsapp" type="button">WhatsApp</button>
+  <button class="btn btn-ghost btn-sm" data-share="facebook" type="button">Facebook</button>
+  <button class="btn btn-ghost btn-sm" data-share="copy" type="button">Copy link</button>
+</div>
+<script>
+(function(){
+  var buttons = document.querySelectorAll('[data-share]');
+  if (!buttons.length) return;
+  var url = location.href.split('#')[0];
+  var title = document.title.split('|')[0].trim();
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.getAttribute('data-share');
+      var text = encodeURIComponent(title + ' — free online tool');
+      var u = encodeURIComponent(url);
+      if (type === 'x') window.open('https://twitter.com/intent/tweet?text='+text+'&url='+u, '_blank', 'width=550,height=420');
+      else if (type === 'whatsapp') window.open('https://wa.me/?text='+text+'%20'+u, '_blank');
+      else if (type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u='+u, '_blank', 'width=550,height=420');
+      else if (type === 'copy') {
+        (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function(){
+          var t = btn.textContent; btn.textContent = 'Copied!';
+          setTimeout(function(){ btn.textContent = t; }, 1500);
+        }).catch(function(){ prompt('Copy this link:', url); });
+      }
+    });
+  });
+})();
+</script>
+<section class="howto">
     <h2 data-i18n="k00199">How to use</h2>
     <ol>
       <li data-i18n="k01169">Type directly into the box, or paste text from anywhere.</li>
@@ -75,9 +124,9 @@
   <section class="related">
     <h2 data-i18n="k00210">Related tools</h2>
     <div class="related-grid">
-      <a href="case-converter.html"><span data-i18n="k00033">Case Converter</span><span>→</span></a>
-      <a href="duplicate-line-remover.html"><span data-i18n="k00035">Duplicate Line Remover</span><span>→</span></a>
-      <a href="json-formatter.html"><span data-i18n="k00040">JSON Formatter</span><span>→</span></a>
+      <a href="case-converter.html" title="Case Converter →"><span data-i18n="k00033">Case Converter</span><span>→</span></a>
+      <a href="duplicate-line-remover.html" title="Duplicate Line Remover →"><span data-i18n="k00035">Duplicate Line Remover</span><span>→</span></a>
+      <a href="json-formatter.html" title="JSON Formatter →"><span data-i18n="k00040">JSON Formatter</span><span>→</span></a>
     </div>
   </section>
 </main>
@@ -85,7 +134,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div data-i18n-html="k00211"><strong>ToolNest</strong> — 58 free tools, zero signup.</div>
-    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184">Home</a><a href="../#text-tools" data-i18n="k00004">Text</a><a href="../#developer-tools" data-i18n="k00005">Developer</a><a href="../#generator-tools" data-i18n="k00006">Generators</a><a href="../#calculator-tools" data-i18n="k00007">Calculators</a></nav>
+    <nav class="footer-links" aria-label="Footer" data-i18n-aria="k00183"><a href="../" data-i18n="k00184" title="Home">Home</a><a href="../#text-tools" data-i18n="k00004" title="Text">Text</a><a href="../#developer-tools" data-i18n="k00005" title="Developer">Developer</a><a href="../#generator-tools" data-i18n="k00006" title="Generators">Generators</a><a href="../#calculator-tools" data-i18n="k00007" title="Calculators">Calculators</a></nav>
   </div>
 </footer>
 
