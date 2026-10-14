@@ -76,6 +76,11 @@ img, svg { max-width: 100%; }
   display: inline-flex; align-items: center; gap: .45rem; font-family: inherit;
 }
 .icon-btn:hover { border-color: var(--accent); }
+/* Language toggle: compact EN | हिं pill */
+.lang-toggle { padding: .45rem .6rem; font-weight: 600; }
+.lang-toggle .lang-opt { color: var(--muted); font-size: .82rem; padding: .1rem .3rem; border-radius: 5px; }
+.lang-toggle .lang-opt.active { color: var(--accent-text); background: var(--accent); }
+.lang-toggle .lang-sep { color: var(--border); font-weight: 400; }
 .icon-btn kbd {
   font-family: var(--mono); font-size: .72rem; background: var(--surface-2);
   border: 1px solid var(--border); border-radius: 5px; padding: .05rem .35rem; color: var(--muted);

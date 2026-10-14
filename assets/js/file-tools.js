@@ -4,6 +4,24 @@
   "use strict";
   var T = (window.ToolNest = window.ToolNest || {});
 
+  /* i18n helper: falls back to English when i18n.js hasn't loaded. */
+  var FALLBACK = {
+    dz_or: "or",
+    dz_select: "Select File",
+    dz_upload_aria: "Upload file",
+    dz_default_label: "Drag & drop your file here"
+  };
+  function L(key, params) {
+    if (window.I18N) return I18N.t(key, params);
+    var s = FALLBACK[key] || key;
+    if (params) {
+      s = String(s).replace(/\{(\w+)\}/g, function (m, p) {
+        return params[p] !== undefined && params[p] !== null ? params[p] : m;
+      });
+    }
+    return s;
+  }
+
   /* ---------- Pinned CDN libraries (loaded on demand, never at page load) ---------- */
   T.CDN = {
     pdfLib: "https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js",
@@ -34,7 +52,7 @@
     document.body.appendChild(a);
     a.click();
     setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 1500);
-    T.showToast("Downloaded " + (filename || "file"));
+    T.showToast(L("dl_done", { name: filename || "file" }));
   }
   function downloadText(text, filename, mime) {
     downloadBlob(new Blob([text], { type: mime || "text/plain;charset=utf-8" }), filename);
@@ -45,7 +63,7 @@
     return new Promise(function (resolve, reject) {
       var r = new FileReader();
       r.onload = function () { resolve(r.result); };
-      r.onerror = function () { reject(new Error("Couldn't read " + file.name)); };
+      r.onerror = function () { reject(new Error(L("read_err", { name: file.name }))); };
       r.readAsArrayBuffer(file);
     });
   }
@@ -53,7 +71,7 @@
     return new Promise(function (resolve, reject) {
       var r = new FileReader();
       r.onload = function () { resolve(r.result); };
-      r.onerror = function () { reject(new Error("Couldn't read " + file.name)); };
+      r.onerror = function () { reject(new Error(L("read_err", { name: file.name }))); };
       r.readAsText(file);
     });
   }
@@ -61,7 +79,7 @@
     return new Promise(function (resolve, reject) {
       var r = new FileReader();
       r.onload = function () { resolve(r.result); };
-      r.onerror = function () { reject(new Error("Couldn't read " + file.name)); };
+      r.onerror = function () { reject(new Error(L("read_err", { name: file.name }))); };
       r.readAsDataURL(file);
     });
   }
@@ -70,25 +88,28 @@
       return new Promise(function (resolve, reject) {
         var img = new Image();
         img.onload = function () { resolve(img); URL.revokeObjectURL(url); };
-        img.onerror = function () { reject(new Error(file.name + " doesn't look like an image file.")); };
+        img.onerror = function () { reject(new Error(L("not_image_file", { name: file.name }))); };
         img.src = url;
       });
     });
   }
 
   /* ---------- Dropzone ---------- */
-  // renderDropzone(container, {accept, multiple, label, onFiles})
+  // renderDropzone(container, {accept, multiple, label, labelKey, onFiles})
+  // labelKey is an i18n string id re-resolved on language switch; label is a plain fallback.
   // onFiles receives an array of File objects.
   function renderDropzone(container, opts) {
     opts = opts || {};
     var accept = opts.accept || "";
     var multiple = !!opts.multiple;
-    var label = opts.label || "Drag & drop your file here";
+    var labelKey = opts.labelKey || null;
+    var label = labelKey ? L(labelKey) : (opts.label || L("dz_default_label"));
+    if (labelKey) container.setAttribute("data-dz-label-key", labelKey);
     container.innerHTML =
-      '<div class="dropzone" tabindex="0" role="button" aria-label="Upload file">' +
+      '<div class="dropzone" tabindex="0" role="button" aria-label="' + T.escapeHtml(L("dz_upload_aria")) + '">' +
         '<div class="dz-icon">📁</div>' +
-        '<div class="dz-text"><strong>' + T.escapeHtml(label) + "</strong><span>or</span></div>" +
-        '<span class="btn btn-primary btn-sm dz-btn">Select File</span>' +
+        '<div class="dz-text"><strong>' + T.escapeHtml(label) + "</strong><span>" + T.escapeHtml(L("dz_or")) + "</span></div>" +
+        '<span class="btn btn-primary btn-sm dz-btn">' + T.escapeHtml(L("dz_select")) + "</span>" +
         '<div class="dz-file" aria-live="polite"></div>' +
         '<input type="file" class="dz-input" accept="' + String(accept).replace(/"/g, "") + '"' +
           (multiple ? " multiple" : "") + ' hidden>' +
@@ -101,7 +122,7 @@
       var files = Array.prototype.slice.call(fileList || []);
       if (!files.length) return;
       var shown = files.slice(0, 4).map(function (f) { return f.name + " (" + formatBytes(f.size) + ")"; });
-      fileInfo.textContent = shown.join(", ") + (files.length > 4 ? " …+" + (files.length - 4) + " more" : "");
+      fileInfo.textContent = shown.join(", ") + (files.length > 4 ? " " + L("dz_more", { n: files.length - 4 }) : "");
       if (opts.onFiles) opts.onFiles(multiple ? files : files.slice(0, 1));
     }
     dz.addEventListener("click", function () { input.click(); });
@@ -143,12 +164,12 @@
   }
   // Shows a friendly inline error and resolves false when a CDN can't load.
   function loadScriptOrAlert(src, alertEl, friendlyMsg) {
-    var msg = friendlyMsg || "A helper library couldn't be downloaded. Check your internet connection and try again.";
+    var msg = friendlyMsg || L("lib_fail_default");
     return loadScript(src).then(function () { return true; }).catch(function () {
       if (alertEl) {
         alertEl.innerHTML = '<div class="alert alert-error">' + T.escapeHtml(msg) + "</div>";
       } else if (T.showToast) {
-        T.showToast("Library failed to load — check your connection");
+        T.showToast(L("lib_fail_short"));
       }
       return false;
     });
@@ -187,6 +208,22 @@
   T.readAsDataURL = readAsDataURL;
   T.loadImageFile = loadImageFile;
   T.renderDropzone = renderDropzone;
+  /* Re-translate dropzone chrome after a language switch (keeps selected files). */
+  function refreshDropzones() {
+    var all = document.querySelectorAll("[data-dz-label-key]");
+    all.forEach(function (c) {
+      var key = c.getAttribute("data-dz-label-key");
+      var strong = c.querySelector(".dz-text strong");
+      if (strong) strong.textContent = L(key);
+      var orSpan = c.querySelector(".dz-text span");
+      if (orSpan) orSpan.textContent = L("dz_or");
+      var btn = c.querySelector(".dz-btn");
+      if (btn) btn.textContent = L("dz_select");
+      var dz = c.querySelector(".dropzone");
+      if (dz) dz.setAttribute("aria-label", L("dz_upload_aria"));
+    });
+  }
+  T.refreshDropzones = refreshDropzones;
   T.loadScript = loadScript;
   T.loadScriptOrAlert = loadScriptOrAlert;
   T.parseCSV = parseCSV;
