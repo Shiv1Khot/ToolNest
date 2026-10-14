@@ -1,6 +1,7 @@
 /* ToolNest shared JS: theme toggle, search overlay, helpers. No dependencies. */
 (function () {
   "use strict";
+  var T = (window.ToolNest = window.ToolNest || {});
 
   /* ---------- Theme ---------- */
   var root = document.documentElement;
@@ -218,5 +219,5 @@
       document.body.removeChild(ta);
     }
   }
-  window.ToolNest = { copyText: copyText, showToast: showToast, escapeHtml: escapeHtml, TOOLS: TOOLS };
+  T.copyText = copyText; T.showToast = showToast; T.escapeHtml = escapeHtml; T.TOOLS = TOOLS;
 })();

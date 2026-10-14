@@ -23,6 +23,12 @@
   }
 
   /* ---------- Pinned CDN libraries (loaded on demand, never at page load) ---------- */
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  T.escapeHtml = T.escapeHtml || escapeHtml;
   T.CDN = {
     pdfLib: "https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js",
     pdfjs: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
